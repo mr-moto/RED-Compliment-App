@@ -6,13 +6,15 @@ import { Quotes } from "../../../api/quotes/quotes";
 import { Suggestions } from "../../../api/suggestions/suggestions";
 import { Badges } from "../../../api/badges/badges";
 
-class App extends Component {
-  constructor() {
-    super();
-  }
+import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
+class App extends Component {
   render() {
-    return <div>Test</div>;
+    return (
+      <MuiThemeProvider>
+        <div>Hai</div>
+      </MuiThemeProvider>
+    );
   }
 }
 
