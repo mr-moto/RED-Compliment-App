@@ -1,1 +1,1 @@
-import "../../api/posts";
+import "../../api/posts/posts.js";

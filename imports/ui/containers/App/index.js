@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
-import { Posts } from "../../../api/posts";
+import { Posts } from "../../../api/posts/posts";
 
 class App extends Component {
   constructor() {

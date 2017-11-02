@@ -1,5 +1,5 @@
 import { Meteor } from "meteor/meteor";
-import { Posts } from "../../api/posts";
+import { Posts } from "../../api/posts/posts";
 import { Accounts } from "meteor/accounts-base";
 
 Meteor.startup(() => {
