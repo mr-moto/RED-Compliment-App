@@ -3,6 +3,34 @@
   justify-content: flex-end;
 }
 
+.posts-container {
+  display: flex;
+}
+
+.posts-to {
+  margin: 0.5rem;
+  align-self: flex-start;
+}
+.posts-body {
+  align-self: center;
+}
+.posts-from {
+  margin: 0.5rem;
+  align-self: flex-end;
+}
+
 li {
   margin: 0.75rem 0;
+  list-style-type: decimal;
+  text-align: left;
+  font-size: 0.75rem;
+}
+
+ol {
+  list-style: disc;
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
 }

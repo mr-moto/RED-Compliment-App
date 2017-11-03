@@ -26,21 +26,22 @@ class PostsContainer extends Component {
       <MenuItem key={5} value={5} primaryText="Least Popular" />
     ];
     const style1 = {
-      height: "20vh",
       width: "100%",
       textAlign: "center",
       display: "inline-block"
     };
     const style = {
-      height: "10vh",
+      minHeight: "10vh",
       width: "100%",
-      textAlign: "center",
-      display: "inline-block",
-      margin: "0.5rem 0"
+      textAlign: "left",
+      display: "flex",
+      flexFlow: "column nowrap",
+      margin: "2px 0",
+      fontSize: "0.75rem"
     };
     const style2 = {
       display: "flex",
-      height: "100vh",
+      height: "100%",
       flexFlow: "column nowrap"
     };
 
@@ -48,7 +49,7 @@ class PostsContainer extends Component {
       <div className="container" style={style2}>
         <div className="profile-container">
           <Paper style={style1} zDepth={1}>
-            <ul>
+            <ol>
               <li>
                 <p>
                   Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
@@ -73,7 +74,7 @@ class PostsContainer extends Component {
                   brizzle.
                 </p>
               </li>
-            </ul>
+            </ol>
           </Paper>
         </div>
         <div className="filter-container">
@@ -81,51 +82,69 @@ class PostsContainer extends Component {
             value={this.state.value}
             onChange={this.handleChange}
             floatingLabelText="Styled Floating Label Text"
-            floatingLabelStyle={{ color: "skyblue" }}
+            floatingLabelStyle={{ color: "#ed4242" }}
+            labelStyle={{ color: "white" }}
+            selectedMenuItemStyle={{ color: "#ed4242" }}
           >
             {items}
           </SelectField>
         </div>
         <div className="posts-container" />
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
         <Paper style={style} zDepth={1}>
-          <p>To, Mary Jane</p>
-          <em>Some beautiful beautiful text</em>
-          <p>From, Secret</p>
+          <p className="posts-to">To, Mary Jane</p>
+          <p className="posts-body">Some beautiful beautiful text</p>
+          <p className="posts-from">
+            From,<br /> Secret
+          </p>
         </Paper>
       </div>
     );
