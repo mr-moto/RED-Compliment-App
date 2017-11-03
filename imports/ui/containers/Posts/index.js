@@ -8,6 +8,8 @@ import { Badges } from "../../../api/badges/badges";
 import Paper from "material-ui/Paper";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
+import PostAvatar from "../../components/PostAvatar/";
+import PostIcon from "../../components/PostIcon/";
 import "./styes";
 
 class PostsContainer extends Component {
@@ -46,11 +48,14 @@ class PostsContainer extends Component {
     };
 
     return (
-      <div className="container" style={style2}>
-        <div className="profile-container">
+      <div className="post-wrapper" style={style2}>
+        <div className="recent-container">
           <Paper style={style1} zDepth={1}>
+            <h2 className="recent-subtitle">
+              Your Recently Received Compliments
+            </h2>
             <ol>
-              <li>
+              <li className="recent-list-item">
                 <p>
                   Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
                   crackalackin velizzle, pot volutpizzle, suscipit phat, fo
@@ -58,7 +63,7 @@ class PostsContainer extends Component {
                   brizzle.
                 </p>
               </li>
-              <li>
+              <li className="recent-list-item">
                 <p>
                   Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
                   crackalackin velizzle, pot volutpizzle, suscipit phat, fo
@@ -66,7 +71,7 @@ class PostsContainer extends Component {
                   brizzle.
                 </p>
               </li>
-              <li>
+              <li className="recent-list-item">
                 <p>
                   Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
                   crackalackin velizzle, pot volutpizzle, suscipit phat, fo
@@ -89,63 +94,30 @@ class PostsContainer extends Component {
             {items}
           </SelectField>
         </div>
-        <div className="posts-container" />
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
-        <Paper style={style} zDepth={1}>
-          <p className="posts-to">To, Mary Jane</p>
-          <p className="posts-body">Some beautiful beautiful text</p>
-          <p className="posts-from">
-            From,<br /> Secret
-          </p>
-        </Paper>
+        <div className="posts-container">
+          <Paper style={style} zDepth={1}>
+            <p className="posts-to">To, Mary Jane</p>
+            <p className="posts-body">Some beautiful beautiful text...</p>
+            <div className="posts-footer">
+              <div className="posts-footer-left">
+                <div className="posts-social-icons-container">
+                  <ul className="posts-social-list">
+                    <PostIcon iconName="fa fa-thumbs-o-up" />
+                    <PostIcon iconName="fa fa-share" />
+                    <PostIcon iconName="fa fa-hand-peace-o" />
+                    <PostIcon iconName="fa fa-heart-o" />
+                  </ul>
+                </div>
+              </div>
+              <div className="posts-footer-right">
+                <p className="posts-from">
+                  From,<br /> Secret
+                </p>
+                <PostAvatar src="https://images.pexels.com/photos/91224/pexels-photo-91224.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" />
+              </div>
+            </div>
+          </Paper>
+        </div>
       </div>
     );
   }
