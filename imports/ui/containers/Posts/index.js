@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../../../api/posts/posts";
@@ -144,16 +143,3 @@ export default withTracker(() => {
     suggestions: Suggestions.find({}).fetch()
   };
 })(PostsContainer);
-=======
-
-class PostsContainer extends Component {
-    state = {  }
-    render() {
-        return (
-            <div>PostsContainer Works!</div>
-        );
-    }
-}
-
-export default PostsContainer;
->>>>>>> 75f9de282d5377ca310acf99642c8d8a496857b5
