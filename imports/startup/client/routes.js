@@ -6,7 +6,7 @@ import ProfileContainer from "../../ui/containers/Profile";
 import SettingsContainer from "../../ui/containers/Settings";
 import ShareContainer from "../../ui/containers/Share";
 import LoginContainer from "../../ui/containers/Login";
-import NotFound from "../../ui/containers/NotFound";
+import {NotFound} from "../../ui/containers/NotFound";
 
 const Routes = () => (
   <Switch>
