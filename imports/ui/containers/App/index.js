@@ -5,14 +5,19 @@ import { Posts } from "../../../api/posts/posts";
 import { Quotes } from "../../../api/quotes/quotes";
 import { Suggestions } from "../../../api/suggestions/suggestions";
 import { Badges } from "../../../api/badges/badges";
+import { BrowserRouter as Router } from "react-router-dom";
+import Routes from "../../routes";
 
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
+import "./styles";
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div>Hai</div>
+        <Router>
+          <Routes />
+        </Router>
       </MuiThemeProvider>
     );
   }

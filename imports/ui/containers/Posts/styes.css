@@ -1,0 +1,8 @@
+.filter-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+li {
+  margin: 0.75rem 0;
+}
