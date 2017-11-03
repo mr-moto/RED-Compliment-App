@@ -7,18 +7,22 @@ import './styles.css';
 
 const styles = {
   tab: {
-    fontSize: 36,
-    paddingTop: 24,
-    marginBottom: 20,
+    fontSize: 12,
+    paddingTop: 12,
+    marginBottom: 10,
     fontWeight: 400,
   },
   name: {
-    fontSize: 36,
-    padding: 15
+    fontSize: 14,
+    padding: 5
   },
   stats: {
-    fontSize: 30,
-    padding: 5
+    fontSize: 12,
+    padding: 5,
+    lineHeight: 1.2
+  },
+  subtitle: {
+    marginLeft: 40
   }
 };
 
@@ -41,6 +45,7 @@ export const Profile = () => {
                                         titleStyle={styles.stats} 
                                         title="Compliments received: " 
                                         subtitle="2" 
+                                        subtitleStyle={styles.subtitle}
                                     />
                                 </div>
                                 <div className="compliments-received">
@@ -48,6 +53,7 @@ export const Profile = () => {
                                         titleStyle={styles.stats} 
                                         title="Compliments given: " 
                                         subtitle="3" 
+                                        subtitleStyle={styles.subtitle}
                                     />
                                 </div>
                             </div>
@@ -68,8 +74,8 @@ export const Profile = () => {
             <div className="profile-compliments">
                 <div className="tab-container">
                     <Tabs 
-                        tabItemContainerStyle={{backgroundColor: 'lavender'}} 
-                        inkBarStyle={{background: 'darkblue'}}
+                        tabItemContainerStyle={{backgroundColor: 'darkgray'}} 
+                        inkBarStyle={{background: 'red'}}
                     >
                         <Tab 
                             style={styles.tab} 
