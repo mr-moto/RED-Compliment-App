@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
+import PropTypes from "prop-types";
 
-import {Profile} from './Profile';
+import { Profile } from './Profile';
+import { withTracker } from "meteor/react-meteor-data";
+import { Posts } from "../../../api/posts/posts";
+import { Badges } from "../../../api/badges/badges";
 
-export default class ProfileContainer extends Component {
+class ProfileContainer extends Component {
 
   constructor() {
     super();
@@ -15,3 +19,13 @@ export default class ProfileContainer extends Component {
         );
     }
 }
+
+ProfileContainer.propTypes = {};
+
+export default withTracker(() => {
+  return {
+    currentUser: Meteor.user(),
+    posts: Posts.find({}).fetch(),
+    badges: Badges.find({}).fetch(),
+  };
+})(ProfileContainer);
