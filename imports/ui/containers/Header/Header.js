@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
 
+import "./styles";
+
 function handleTouchTapMenu() {
     console.log("burger lcickeddddd");
 }
@@ -29,22 +31,22 @@ class Header extends Component {
                     onRequestChange={open => this.setState({ open })}
                 >
                     <MenuItem onClick={this.handleClose}>
-                        <Link to="/" className="home">
+                        <Link to="/" className="menu">
                             Home
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={this.handleClose}>
-                        <Link to="/profile" className="profile">
+                        <Link to="/profile" className="menu">
                             Profile
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={this.handleClose}>
-                        <Link to="/profile/settings" className="settings">
+                        <Link to="/profile/settings" className="menu">
                             Settings
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={this.handleClose}>
-                        <Link to="/login" className="logout">
+                        <Link to="/login" className="menu">
                             Logout
                         </Link>
                     </MenuItem>
