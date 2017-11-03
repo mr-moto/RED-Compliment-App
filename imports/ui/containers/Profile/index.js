@@ -1,12 +1,5 @@
-import React, { Component } from "react";
+import Profile from './Profile';
+import ProfileContainer from './ProfileContainer';
 
-class ProfileContainer extends Component {
-    state = {  }
-    render() {
-        return (
-            <div>ProfileContainer Works!</div>
-        );
-    }
-}
-
+export { Profile };
 export default ProfileContainer;
