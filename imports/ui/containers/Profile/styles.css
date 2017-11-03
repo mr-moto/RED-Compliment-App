@@ -7,6 +7,7 @@
     padding-top: 20px;
     margin-bottom: 16px;
     font-weight: 400;
+    color: white;
 }
 
 .card-structure {
@@ -14,14 +15,14 @@
 }
 
 .card-left {
-    width: 70%;
+    width: 65%;
 }
 
 .card-right {
     align-items: center;
     display: flex;
     justify-content: center;
-    width: 30%;
+    width: 35%;
 }
 
 .stats {

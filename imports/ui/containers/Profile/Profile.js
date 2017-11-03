@@ -18,7 +18,11 @@ const styles = {
   },
   stats: {
     fontSize: 12,
-    padding: 5
+    padding: 5,
+    lineHeight: 1.2
+  },
+  subtitle: {
+    marginLeft: 40
   }
 };
 
@@ -41,6 +45,7 @@ export const Profile = () => {
                                         titleStyle={styles.stats} 
                                         title="Compliments received: " 
                                         subtitle="2" 
+                                        subtitleStyle={styles.subtitle}
                                     />
                                 </div>
                                 <div className="compliments-received">
@@ -48,6 +53,7 @@ export const Profile = () => {
                                         titleStyle={styles.stats} 
                                         title="Compliments given: " 
                                         subtitle="3" 
+                                        subtitleStyle={styles.subtitle}
                                     />
                                 </div>
                             </div>
