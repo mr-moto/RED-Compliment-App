@@ -1,6 +1,34 @@
+/*.profile-card {
+    margin-bottom: 20px;
+}*/
+
 .tab {
-    font: 24px;
-    padding-top: 16px;
-    margin-bottom: 12px;
+    font: 36px;
+    padding-top: 20px;
+    margin-bottom: 16px;
     font-weight: 400;
+}
+
+.card-structure {
+    display: flex;
+}
+
+.card-left {
+    width: 70%;
+}
+
+.card-right {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.profile-compliments {
+    margin-top: 30px;
 }
