@@ -9,7 +9,11 @@ import Paper from "material-ui/Paper";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
 import PostAvatar from "../../components/PostAvatar/";
+import PostIconList from "../../components/PostIconList/";
 import PostIcon from "../../components/PostIcon/";
+import PostBody from "../../components/PostBody/";
+import RecentList from "../../components/RecentList/";
+import RecentListItem from "../../components/RecentListItems/";
 import "./styes";
 
 class PostsContainer extends Component {
@@ -54,32 +58,20 @@ class PostsContainer extends Component {
             <h2 className="recent-subtitle">
               Your Recently Received Compliments
             </h2>
-            <ol>
-              <li className="recent-list-item">
-                <p>
-                  Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
+            <RecentList>
+              <RecentListItem recentitem="Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
                   crackalackin velizzle, pot volutpizzle, suscipit phat, fo
                   shizzle mah nizzle fo rizzle, mah home g-dizzle vizzle,
-                  brizzle.
-                </p>
-              </li>
-              <li className="recent-list-item">
-                <p>
-                  Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
+                  brizzle." />
+              <RecentListItem recentitem="Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
                   crackalackin velizzle, pot volutpizzle, suscipit phat, fo
                   shizzle mah nizzle fo rizzle, mah home g-dizzle vizzle,
-                  brizzle.
-                </p>
-              </li>
-              <li className="recent-list-item">
-                <p>
-                  Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
+                  brizzle." />
+              <RecentListItem recentitem="Lorizzle ipsizzle dolor amet, crunk shit pizzle. Nullizzle
                   crackalackin velizzle, pot volutpizzle, suscipit phat, fo
                   shizzle mah nizzle fo rizzle, mah home g-dizzle vizzle,
-                  brizzle.
-                </p>
-              </li>
-            </ol>
+                  brizzle." />
+            </RecentList>
           </Paper>
         </div>
         <div className="filter-container">
@@ -97,16 +89,16 @@ class PostsContainer extends Component {
         <div className="posts-container">
           <Paper style={style} zDepth={1}>
             <p className="posts-to">To, Mary Jane</p>
-            <p className="posts-body">Some beautiful beautiful text...</p>
+            <PostBody content="Some beautiful beautiful text..." />
             <div className="posts-footer">
               <div className="posts-footer-left">
                 <div className="posts-social-icons-container">
-                  <ul className="posts-social-list">
+                  <PostIconList>
                     <PostIcon iconName="fa fa-thumbs-o-up" />
                     <PostIcon iconName="fa fa-share" />
                     <PostIcon iconName="fa fa-hand-peace-o" />
                     <PostIcon iconName="fa fa-heart-o" />
-                  </ul>
+                  </PostIconList>
                 </div>
               </div>
               <div className="posts-footer-right">

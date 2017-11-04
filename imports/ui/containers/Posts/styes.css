@@ -12,14 +12,9 @@
 }
 
 .posts-container,
-.posts-social-icons-container,
 .posts-footer,
-.posts-social-list {
+.posts-social-icons-container {
   display: flex;
-}
-
-.posts-social-list {
-  align-items: center;
 }
 
 .recent-subtitle {
@@ -35,9 +30,6 @@
 .posts-to {
   margin: 0.5rem;
   align-self: flex-start;
-}
-.posts-body {
-  margin: 1rem;
 }
 .posts-from {
   margin-right: 0.5rem;
@@ -58,12 +50,6 @@
 .posts-footer-right {
   display: flex;
   align-items: center;
-}
-
-.posts-social-list-item {
-  display: flex;
-  flex-flow: row nowrap;
-  margin-left: 1rem;
 }
 
 li {

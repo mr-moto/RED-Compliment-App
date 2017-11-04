@@ -1,0 +1,5 @@
+.posts-social-list-item {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-left: 1rem;
+}
