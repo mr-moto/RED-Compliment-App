@@ -6,13 +6,17 @@ import { SignIn } from "../../components/SignIn";
 
 import "./styles.css";
 
-const login = (e) => {
+const register = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
     let password = e.target.password.value;
-    Meteor.loginWithPassword(email, password);
+     Accounts.createUser({
+            email: email,
+            password: password
+        });
 }
-class LoginContainer extends Component {
+
+class RegisterContainer extends Component {
     state = {};
     render() {
         const { currentUserId } = this.props;
@@ -20,8 +24,8 @@ class LoginContainer extends Component {
             return <Redirect to="/" />;
         } else {
             return (
-                <div className="loginContainer">
-                    <SignIn submit={login} label1={'Register'} label2={'Sign In'} link={'/register'} />
+                <div className="registerContainer">
+                    <SignIn submit={register} label1={'Back'} label2={'Register'} link={'/login'} />
                 </div>
             );
         }
@@ -32,4 +36,4 @@ export default withTracker(() => {
     return {
         currentUserId: Meteor.userId()
     };
-})(LoginContainer);
+})(RegisterContainer);
