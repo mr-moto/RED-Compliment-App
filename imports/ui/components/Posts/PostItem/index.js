@@ -25,7 +25,7 @@ const PostItem = ({ content, to, from }) => {
         </div>
         <div className="posts-footer-right">
           <p className="posts-from">
-            From,<br /> {from.profile.FirstName}
+            From,<br /> {from.profile.firstName}
           </p>
           <PostAvatar src={from.profile.photo} />
         </div>
