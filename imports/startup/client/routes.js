@@ -7,14 +7,15 @@ import SettingsContainer from "../../ui/containers/Settings";
 import ShareContainer from "../../ui/containers/Share";
 import LoginContainer from "../../ui/containers/Login";
 import {NotFound} from "../../ui/containers/NotFound";
+import PrivateRoute from '../../ui/components/PrivateRoute';
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={PostsContainer} />
+    <PrivateRoute exact path="/" component={PostsContainer} />
     <Route exact path="/login" component={LoginContainer} />
-    <Route exact path="/profile" component={ProfileContainer} />
-    <Route exact path="/profile/settings" component={SettingsContainer} />
-    <Route exact path="/share" component={ShareContainer} />;
+    <PrivateRoute exact path="/profile" component={ProfileContainer} />
+    {/* <PrivateRoute exact path="/profile/settings" component={SettingsContainer} /> */}
+    <PrivateRoute exact path="/share" component={ShareContainer} />;
     <Route path="*" component={NotFound} />
   </Switch>
 );
