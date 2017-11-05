@@ -42,6 +42,8 @@ class PostsContainer extends Component {
 
     const { users, posts } = this.props;
 
+    console.log(this.props);
+
     if (posts.length > 0 && users.length > 0) {
       return (
         <div className="post-wrapper">
@@ -96,9 +98,12 @@ class PostsContainer extends Component {
 Posts.propTypes = {};
 
 export default withTracker(() => {
+  Meteor.subscribe("posts");
+  Meteor.subscribe("users");
+
   return {
     currentUser: Meteor.user(),
-    users: Meteor.users.find().fetch(),
+    users: Meteor.users.find({}).fetch(),
     posts: Posts.find({}).fetch()
   };
 })(PostsContainer);
