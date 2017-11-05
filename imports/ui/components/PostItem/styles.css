@@ -1,0 +1,38 @@
+.posts-to {
+  margin: 0.5rem;
+  align-self: flex-start;
+}
+.posts-from {
+  margin-right: 0.5rem;
+  line-height: 1.5rem;
+}
+
+.posts-social-icons-container,
+.posts-footer,
+.posts-footer-left,
+.posts-footer-right,
+.post-item-container {
+  display: flex;
+}
+
+.posts-footer {
+  justify-content: space-between;
+}
+
+.posts-footer-left {
+  width: 75%;
+  justify-content: space-between;
+}
+
+.posts-footer-right {
+  align-items: center;
+}
+
+.post-item-container {
+  min-height: 10vh;
+  width: 100%;
+  text-align: left;
+  flex-flow: column nowrap;
+  margin: 2px 0;
+  font-size: 0.75rem;
+}

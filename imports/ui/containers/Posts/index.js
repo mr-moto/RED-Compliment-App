@@ -8,12 +8,10 @@ import { Badges } from "../../../api/badges/badges";
 import Paper from "material-ui/Paper";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
-import PostAvatar from "../../components/PostAvatar/";
-import PostIconList from "../../components/PostIconList/";
-import PostIcon from "../../components/PostIcon/";
-import PostBody from "../../components/PostBody/";
 import RecentList from "../../components/RecentList/";
 import RecentListItem from "../../components/RecentListItems/";
+import PostItem from "../../components/PostItem/";
+
 import "./styes";
 
 class PostsContainer extends Component {
@@ -27,34 +25,13 @@ class PostsContainer extends Component {
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
       <MenuItem key={2} value={2} primaryText="Most Popular" />,
-      <MenuItem key={3} value={3} primaryText="Trending" />,
-      <MenuItem key={4} value={4} primaryText="Newest" />,
-      <MenuItem key={5} value={5} primaryText="Least Popular" />
+      <MenuItem key={3} value={3} primaryText="Trending" />
     ];
-    const style1 = {
-      width: "100%",
-      textAlign: "center",
-      display: "inline-block"
-    };
-    const style = {
-      minHeight: "10vh",
-      width: "100%",
-      textAlign: "left",
-      display: "flex",
-      flexFlow: "column nowrap",
-      margin: "2px 0",
-      fontSize: "0.75rem"
-    };
-    const style2 = {
-      display: "flex",
-      height: "100%",
-      flexFlow: "column nowrap"
-    };
 
     return (
-      <div className="post-wrapper" style={style2}>
+      <div className="post-wrapper">
         <div className="recent-container">
-          <Paper style={style1} zDepth={1}>
+          <Paper className="posts-paper" zDepth={1}>
             <h2 className="recent-subtitle">
               Your Recently Received Compliments
             </h2>
@@ -87,28 +64,27 @@ class PostsContainer extends Component {
           </SelectField>
         </div>
         <div className="posts-container">
-          <Paper style={style} zDepth={1}>
-            <p className="posts-to">To, Mary Jane</p>
-            <PostBody content="Some beautiful beautiful text..." />
-            <div className="posts-footer">
-              <div className="posts-footer-left">
-                <div className="posts-social-icons-container">
-                  <PostIconList>
-                    <PostIcon iconName="fa fa-thumbs-o-up" />
-                    <PostIcon iconName="fa fa-share" />
-                    <PostIcon iconName="fa fa-hand-peace-o" />
-                    <PostIcon iconName="fa fa-heart-o" />
-                  </PostIconList>
-                </div>
-              </div>
-              <div className="posts-footer-right">
-                <p className="posts-from">
-                  From,<br /> Secret
-                </p>
-                <PostAvatar src="https://images.pexels.com/photos/91224/pexels-photo-91224.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" />
-              </div>
-            </div>
-          </Paper>
+          <PostItem
+            content="Some beautiful beautiful text..."
+            to="Mary Jane"
+            from="Secret"
+          />
+          <PostItem
+            content="I wanna write you a haiku"
+            to="Joe Rogan"
+            from="Who"
+          />
+          <PostItem
+            content="Your hair is just so awesome"
+            to="Queen Elizabeth"
+            from="What"
+          />
+          <PostItem
+            content="You are like... the nicest person ever"
+            to="Justin Trudeau"
+            from="When"
+          />
+          <PostItem content="Have my babies" to="Donald J Trump" from="Where" />
         </div>
       </div>
     );
