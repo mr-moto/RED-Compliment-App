@@ -1,8 +1,9 @@
 import React from 'react';
+import {Card} from 'material-ui/Card';
 
 import './styles.css';
 
-var splittedText = [
+var splittedText = [ //Dummy text, to be removed later
                     "Your shirt is awesome", 
                     "Your project looked so professional", 
                     "Your lunch always looks delicious", 
@@ -25,14 +26,18 @@ function cycleThroughArray(splittedText) {
 const Suggestions = () => {
     return(
         <div className="suggestions">
-            <div className="suggestions-box">
-                <div className="suggestions-header">
-                    Lost for words? Just write what comes to mind! 
+            <Card> 
+                <div className="suggestions-box">
+                    <div className="suggestions-header">
+                        <div> 
+                            <p> Lost for words? Just write what comes to mind! </p>
+                        </div>
+                        <div id="generated-suggestion" className="suggestions-cycle">
+                            {cycleThroughArray(splittedText)}
+                        </div>
+                    </div>
                 </div>
-                <div id="generated-suggestion" className="suggestions-cycle">
-                    {cycleThroughArray(splittedText)}
-                </div>
-            </div>
+            </Card>
         </div>
     );
 }
