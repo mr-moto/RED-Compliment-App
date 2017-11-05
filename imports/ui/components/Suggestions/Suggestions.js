@@ -5,7 +5,7 @@ import './styles.css';
 const Suggestions = () => {
     return(
         <div className="suggestions">
-            <p> Suggestions </p>
+            Suggestions
         </div>
     );
 }
