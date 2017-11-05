@@ -73,4 +73,8 @@ Meteor.startup(() => {
       body: "How are you so good at beer pong?!"
     });
   }
+
+  Meteor.publish("users", function usersPublication() {
+    return Meteor.users.find();
+  });
 });
