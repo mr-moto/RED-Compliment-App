@@ -10,7 +10,7 @@ import "./styles";
 const PostItem = ({ content, to, from }) => {
   return (
     <Paper className="post-item-container" zDepth={1}>
-      <p className="posts-to">To. {to}</p>
+      <p className="posts-to">To. {to.profile.firstName}</p>
       <PostBody content={content} />
       <div className="posts-footer">
         <div className="posts-footer-left">
@@ -25,9 +25,9 @@ const PostItem = ({ content, to, from }) => {
         </div>
         <div className="posts-footer-right">
           <p className="posts-from">
-            From,<br /> {from}
+            From,<br /> {from.profile.firstName}
           </p>
-          <PostAvatar src="https://images.pexels.com/photos/91224/pexels-photo-91224.jpeg?w=1260&h=750&dpr=2&auto=compress&cs=tinysrgb" />
+          <PostAvatar src={from.profile.photo} />
         </div>
       </div>
     </Paper>
