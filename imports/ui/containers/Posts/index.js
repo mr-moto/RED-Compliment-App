@@ -8,9 +8,9 @@ import { Badges } from "../../../api/badges/badges";
 import Paper from "material-ui/Paper";
 import SelectField from "material-ui/SelectField";
 import MenuItem from "material-ui/MenuItem";
-import RecentList from "../../components/RecentList/";
-import RecentListItem from "../../components/RecentListItems/";
-import PostItem from "../../components/PostItem/";
+import RecentList from "../../components/RecentCompliments/RecentList/";
+import RecentListItem from "../../components/RecentCompliments/RecentListItems/";
+import PostItem from "../../components/Posts/PostItem/";
 
 import "./styes";
 

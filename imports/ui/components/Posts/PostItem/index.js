@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Paper from "material-ui/Paper";
-import PostAvatar from "../../components/PostAvatar/";
-import PostIconList from "../../components/PostIconList/";
-import PostIcon from "../../components/PostIcon/";
-import PostBody from "../../components/PostBody/";
+import PostAvatar from "../PostAvatar/";
+import PostIconList from "../PostIconList/";
+import PostIcon from "../PostIcon/";
+import PostBody from "../PostBody/";
 import "./styles";
 
 const PostItem = ({ content, to, from }) => {
