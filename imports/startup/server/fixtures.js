@@ -42,5 +42,35 @@ Meteor.startup(() => {
       from: Meteor.users.findOne({}, { skip: 1 }),
       body: "This is a beautiful world..."
     });
+    Posts.insert({
+      to: Meteor.users.findOne({}, { skip: 1 }),
+      from: Meteor.users.findOne(),
+      body: "Nice haircut!"
+    });
+    Posts.insert({
+      to: Meteor.users.findOne(),
+      from: Meteor.users.findOne({}, { skip: 1 }),
+      body: "Nice face!!"
+    });
+    Posts.insert({
+      to: Meteor.users.findOne({}, { skip: 1 }),
+      from: Meteor.users.findOne(),
+      body: "That shirt of yours is so cool!"
+    });
+    Posts.insert({
+      to: Meteor.users.findOne(),
+      from: Meteor.users.findOne({}, { skip: 1 }),
+      body: "Always like talking to you!"
+    });
+    Posts.insert({
+      to: Meteor.users.findOne({}, { skip: 1 }),
+      from: Meteor.users.findOne(),
+      body: "Always a pleasure chillin"
+    });
+    Posts.insert({
+      to: Meteor.users.findOne(),
+      from: Meteor.users.findOne({}, { skip: 1 }),
+      body: "How are you so good at beer pong?!"
+    });
   }
 });
