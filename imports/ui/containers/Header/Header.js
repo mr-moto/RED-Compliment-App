@@ -17,6 +17,10 @@ class Header extends Component {
     }
     handleMenuToggle = () => this.setState({ open: !this.state.open });
     handleClose = () => this.setState({ open: false });
+    logOut = () => { 
+        Meteor.logout();
+        this.setState({ open: false });
+    }
     render() {
         return (
             <div>
@@ -45,7 +49,7 @@ class Header extends Component {
                             Settings
                         </Link>
                     </MenuItem>
-                    <MenuItem onClick={this.handleClose}>
+                    <MenuItem onClick={this.logOut}>
                         <Link to="/login" className="menu">
                             Logout
                         </Link>
