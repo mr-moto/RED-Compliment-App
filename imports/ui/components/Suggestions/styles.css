@@ -1,4 +1,11 @@
 .suggestions-box {
     margin: 20px;
     border: 1px solid white;
+    color: white;
+    padding: 10px;
+}
+
+.suggestions-cycle {
+    margin-top: 20px;
+    font-style: italic;
 }

@@ -2,36 +2,35 @@ import React from 'react';
 
 import './styles.css';
 
-var splittedText = ["Hello", "World", "How", "Are", "You", "Today"];
+var splittedText = [
+                    "Your shirt is awesome", 
+                    "Your project looked so professional", 
+                    "Your lunch always looks delicious", 
+                    "Compliment1", 
+                    "Compliment2", 
+                    "Compliment3"
+                    ];
 
-function loopThroughSplittedText(splittedText) {
+function cycleThroughArray(splittedText) {
     for (var i = 0; i < splittedText.length; i++) {
-        // for each iteration console.log a word
-        // and make a pause after it
         (function (i) {
             setTimeout(function () {
                 document.getElementById('generated-suggestion').innerHTML = "";
                 document.getElementById('generated-suggestion').innerHTML += splittedText[i];
-                //console.log(splittedText[i]);
-            }, 3000 * i);
+            }, 5000 * i);
         })(i);
     };
 }
-loopThroughSplittedText(splittedText);
-
-
 
 const Suggestions = () => {
     return(
         <div className="suggestions">
             <div className="suggestions-box">
-                <div>
-                    Lost for words? 
+                <div className="suggestions-header">
+                    Lost for words? Just write what comes to mind! 
                 </div>
-                <div id="generated-suggestion">
-                    {loopThroughSplittedText(splittedText)}
-                </div>
-                <div>
+                <div id="generated-suggestion" className="suggestions-cycle">
+                    {cycleThroughArray(splittedText)}
                 </div>
             </div>
         </div>
