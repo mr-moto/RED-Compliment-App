@@ -10,9 +10,17 @@ const register = (e) => {
     e.preventDefault();
     let email = e.target.email.value;
     let password = e.target.password.value;
+    let firstName = e.target.firstName.value;
+    let lastName = e.target.lastName.value;
      Accounts.createUser({
             email: email,
-            password: password
+            password: password,
+            profile: {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                photo: null
+            }
         });
 }
 
@@ -25,7 +33,7 @@ class RegisterContainer extends Component {
         } else {
             return (
                 <div className="registerContainer">
-                    <SignIn submit={register} label1={'Back'} label2={'Register'} link={'/login'} />
+                    <SignIn submit={register} label1={'Back'} label2={'Register'} link={'/login'} register={true} />
                 </div>
             );
         }
