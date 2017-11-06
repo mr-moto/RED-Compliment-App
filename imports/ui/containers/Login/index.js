@@ -21,7 +21,7 @@ class LoginContainer extends Component {
         } else {
             return (
                 <div className="loginContainer">
-                    <SignIn submit={login} label1={'Register'} label2={'Sign In'} link={'/register'} />
+                    <SignIn submit={login} label1={'Register'} label2={'Sign In'} link={'/register'} register={false} />
                 </div>
             );
         }
