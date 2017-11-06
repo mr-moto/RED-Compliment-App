@@ -15,9 +15,12 @@ class ProfileContainer extends Component {
   }
 
     render() {
+
+      const {currentUser, posts} = this.props;
+
         return ( 
             <div>
-                <Profile />
+                <Profile currentUser={currentUser} posts={posts} />
             </div>
         );
     }
@@ -26,6 +29,9 @@ class ProfileContainer extends Component {
 ProfileContainer.propTypes = {};
 
 export default withTracker(() => {
+  Meteor.subscribe("posts");
+  Meteor.subscribe("users");
+
   return {
     currentUser: Meteor.user(),
     posts: Posts.find({}).fetch(),
