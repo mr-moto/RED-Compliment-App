@@ -11,6 +11,7 @@ import MenuItem from "material-ui/MenuItem";
 import RecentList from "../../components/RecentCompliments/RecentList/";
 import RecentListItem from "../../components/RecentCompliments/RecentListItems/";
 import PostItem from "../../components/Posts/PostItem/";
+import CircularProgress from "material-ui/CircularProgress";
 
 import "./styes";
 
@@ -41,8 +42,6 @@ class PostsContainer extends Component {
     ];
 
     const { users, posts } = this.props;
-
-    console.log(this.props);
 
     if (posts.length > 0 && users.length > 0) {
       return (
@@ -91,7 +90,17 @@ class PostsContainer extends Component {
         </div>
       );
     }
-    return <div>Is Loading...</div>;
+    return (
+      <div className="loading-container">
+        <CircularProgress
+          className="page-loader"
+          color="#ed4242"
+          size={80}
+          thickness={5}
+        />
+        <p className="loading-text">Loading...</p>
+      </div>
+    );
   }
 }
 

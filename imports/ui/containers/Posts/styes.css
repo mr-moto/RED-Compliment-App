@@ -14,7 +14,8 @@
 
 .posts-container,
 .post-wrapper,
-.filter-container {
+.filter-container,
+.loading-container {
   display: flex;
 }
 
@@ -32,6 +33,21 @@
   margin: 0 1rem;
   border-bottom: 1px solid #ed4242;
   padding: 1rem;
+}
+
+.loading-container {
+  height: 80vh;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-loader {
+  margin: 1.75rem;
+}
+
+.loading-text {
+  color: #fff;
 }
 
 li {
