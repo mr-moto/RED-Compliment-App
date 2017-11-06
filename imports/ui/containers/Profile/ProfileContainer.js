@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from "prop-types";
 
-import  Suggestions  from '../../components/Suggestions' //Only here to test layout while building
 import { Profile } from './Profile';
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../../../api/posts/posts";
@@ -16,9 +15,8 @@ class ProfileContainer extends Component {
   }
 
     render() {
-        return ( //Remove suggestions later
+        return ( 
             <div>
-                <Suggestions /> 
                 <Profile />
             </div>
         );
