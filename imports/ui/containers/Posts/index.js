@@ -92,8 +92,7 @@ class PostsContainer extends Component {
       <MenuItem key={3} value={3} primaryText="Trending" />
     ];
 
-    const { users, posts, currentUser, suggestions } = this.props;
-    const { shareIsExpanded, toValue, bodyValue } = this.state;
+    const { users, posts } = this.props;
 
     if (posts.length > 0 && users.length > 0) {
       return (
