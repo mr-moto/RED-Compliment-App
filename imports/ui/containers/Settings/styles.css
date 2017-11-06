@@ -1,0 +1,9 @@
+.settingsContainer {
+    padding: 0 1rem;
+}
+.changePhoto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+}
