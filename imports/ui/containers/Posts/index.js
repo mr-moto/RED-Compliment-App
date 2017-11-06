@@ -42,8 +42,6 @@ class PostsContainer extends Component {
 
     const { users, posts } = this.props;
 
-    console.log(this.props);
-
     if (posts.length > 0 && users.length > 0) {
       return (
         <div className="post-wrapper">
