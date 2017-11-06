@@ -2,6 +2,8 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import {Card, CardTitle} from 'material-ui/Card';
 import {Tabs, Tab} from 'material-ui/Tabs';
+import PostItem from "../../components/Posts/PostItem/";
+import PostAvatar from "../../components/Posts/PostAvatar/";
 
 import './styles.css';
 
@@ -27,18 +29,15 @@ const styles = {
 };
 
 export const Profile = ({currentUser, posts}) => {
-
-    if (posts.length > 0 && currentUser) {
-
-        //All sent posts from this user
-        const sentPosts = posts.filter(post => post.from._id === currentUser._id)
-
-        //All received posts from this user
-        const receivedPosts = posts.filter(post => post.to._id === currentUser._id)
-        console.log(receivedPosts);
-    }
     
     if (currentUser) {
+        console.log(currentUser);
+
+        //All sent posts from this user
+        const sentPosts = posts.filter(post => post.from._id === currentUser._id);
+
+        //All received posts from this user
+        const receivedPosts = posts.filter(post => post.to._id === currentUser._id);
 
         return (
             <div> 
@@ -57,7 +56,7 @@ export const Profile = ({currentUser, posts}) => {
                                         <CardTitle 
                                             titleStyle={styles.stats} 
                                             title="Compliments received: " 
-                                            subtitle="2" 
+                                            subtitle={receivedPosts.length} 
                                             subtitleStyle={styles.subtitle}
                                         />
                                     </div>
@@ -65,7 +64,7 @@ export const Profile = ({currentUser, posts}) => {
                                         <CardTitle 
                                             titleStyle={styles.stats} 
                                             title="Compliments given: " 
-                                            subtitle="3" 
+                                            subtitle={sentPosts.length} 
                                             subtitleStyle={styles.subtitle}
                                         />
                                     </div>
@@ -74,7 +73,7 @@ export const Profile = ({currentUser, posts}) => {
                             <div className="card-right">
                                 <div className="user-image-and-badge">
                                     <div className="user-image">
-                                        User image
+                                        <PostAvatar src={currentUser.profile.photo} />
                                     </div>
                                     <div className="badge-overlay">
                                     </div>
@@ -92,24 +91,38 @@ export const Profile = ({currentUser, posts}) => {
                         >
                             <Tab 
                                 style={styles.tab} 
-                                label="Compliments Received"
+                                label={`Compliments Received (${receivedPosts.length})`}
+                                style={{margin: '0px', padding: '0px'}}
                             >
                                 <div>
-                                    <h2 className="tab">You're popular! You've received X compliments: </h2>
-                                    <p>
-                                    Here are the compliments
-                                    </p>
+                                    {receivedPosts.map(post => {
+                                        return (
+                                            <PostItem
+                                            key={post._id}
+                                            content={post.body}
+                                            to={post.to}
+                                            from={post.from}
+                                            />
+                                        );
+                                    })}                                
                                 </div>
-                                </Tab>
-                                <Tab 
-                                    style={styles.tab} 
-                                    label="Compliments Sent" 
-                                >
+                            </Tab>
+                            <Tab 
+                                style={styles.tab} 
+                                label={`Compliments Sent (${sentPosts.length})`} 
+                                style={{margin: '0px', padding: '0px'}}
+                            >
                                 <div>
-                                    <h2 className="tab">So generous. Much kind. You've sent X compliments:</h2>
-                                    <p>
-                                    Here are the compliments
-                                    </p>
+                                    {sentPosts.map(post => {
+                                        return (
+                                            <PostItem
+                                            key={post._id}
+                                            content={post.body}
+                                            to={post.to}
+                                            from={post.from}
+                                            />
+                                        );
+                                    })}   
                                 </div>
                             </Tab>
                         </Tabs>

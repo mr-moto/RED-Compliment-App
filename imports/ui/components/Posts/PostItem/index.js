@@ -27,7 +27,7 @@ const PostItem = ({ content, to, from }) => {
           <p className="posts-from">
             From,<br /> {from.profile.firstName}
           </p>
-          <PostAvatar src={from.profile.photo} />
+          <PostAvatar src={from.profile.photo}/>
         </div>
       </div>
     </Paper>
