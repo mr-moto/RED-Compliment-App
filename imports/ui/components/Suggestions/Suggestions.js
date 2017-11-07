@@ -1,27 +1,16 @@
 import React from 'react';
 import {Card} from 'material-ui/Card';
+import TextLoop from 'react-text-loop';
 
 import './styles.css';
 
-var splittedText = [ //Dummy text, to be removed later
+var ArrayText = [ //Dummy text, to be removed later
                     "Your shirt is awesome", 
-                    "Your project looked so professional", 
+                    "That project looked so professional", 
                     "Your lunch always looks delicious", 
-                    "Compliment1", 
-                    "Compliment2", 
-                    "Compliment3"
+                    "I love your dog  Betsy!", 
+                    "You have such a great smile"
                     ];
-
-function cycleThroughArray(splittedText) {
-    for (var i = 0; i < splittedText.length; i++) {
-        (function (i) {
-            setTimeout(function () {
-                document.getElementById('generated-suggestion').innerHTML = "";
-                document.getElementById('generated-suggestion').innerHTML += splittedText[i];
-            }, 5000 * i);
-        })(i);
-    };
-}
 
 const Suggestions = () => {
     return(
@@ -30,10 +19,10 @@ const Suggestions = () => {
                 <div className="suggestions-box">
                     <div className="suggestions-header">
                         <div> 
-                            <p> Lost for words? Just write what comes to mind! </p>
+                            <p> Lost for words? Here are some ideas! </p>
                         </div>
-                        <div id="generated-suggestion" className="suggestions-cycle">
-                            {cycleThroughArray(splittedText)}
+                        <div className="suggestions-cycle">
+                            <TextLoop style={{fontSize: '14px'}} children={ArrayText} />
                         </div>
                     </div>
                 </div>
