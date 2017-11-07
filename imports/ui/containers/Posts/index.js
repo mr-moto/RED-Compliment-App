@@ -17,7 +17,7 @@ import "./styes";
 
 class PostsContainer extends Component {
   state = {
-    value: null
+    shareIsExpanded: false
   };
 
   handleChange = (event, index, value) => this.setState({ value });
@@ -34,6 +34,18 @@ class PostsContainer extends Component {
     return itemsContainer;
   };
 
+  showShareForm = e => {
+    const { shareIsExpanded } = this.state;
+
+    shareIsExpanded
+      ? this.setState({
+          shareIsExpanded: false
+        })
+      : this.setState({
+          shareIsExpanded: true
+        });
+  };
+
   render() {
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
@@ -42,8 +54,10 @@ class PostsContainer extends Component {
     ];
 
     const { users, posts } = this.props;
+    const { shareIsExpanded } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
+      console.log(this.state.shareIsExpanded);
       return (
         <div className="post-wrapper">
           <div className="recent-container">
@@ -87,9 +101,28 @@ class PostsContainer extends Component {
               );
             })}
           </div>
+          <Paper
+            id="share-container"
+            className={`share-container ${shareIsExpanded
+              ? "share-clicked share-expanded"
+              : "share-collapsed"}`}
+          >
+            <Paper
+              className="share-bar"
+              zDepth={1}
+              rounded={false}
+              style={{ background: "#3c3737" }}
+              onClick={() => {
+                this.showShareForm();
+              }}
+            >
+              <span className="share-button">+</span>
+            </Paper>
+          </Paper>
         </div>
       );
     }
+    console.log(this.state.shareIsExpanded);
     return (
       <div className="loading-container">
         <CircularProgress
