@@ -12,6 +12,7 @@ import RecentList from "../../components/RecentCompliments/RecentList/";
 import RecentListItem from "../../components/RecentCompliments/RecentListItems/";
 import PostItem from "../../components/Posts/PostItem/";
 import CircularProgress from "material-ui/CircularProgress";
+import TextField from "material-ui/TextField";
 
 import "./styes";
 
@@ -27,7 +28,7 @@ class PostsContainer extends Component {
     let i = 0;
 
     while (i < 3 && i < item.length) {
-      itemsContainer.push(item[i].body);
+      itemsContainer.push(item[item.length - 1 - i].body);
       i++;
     }
 
@@ -57,11 +58,10 @@ class PostsContainer extends Component {
     const { shareIsExpanded } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
-      console.log(this.state.shareIsExpanded);
       return (
         <div className="post-wrapper">
           <div className="recent-container">
-            <Paper className="posts-paper" zDepth={1}>
+            <Paper className="posts-paper" zDepth={1} rounded={false}>
               <h2 className="recent-subtitle">
                 Your Recently Received Compliments
               </h2>
@@ -104,7 +104,7 @@ class PostsContainer extends Component {
           <Paper
             id="share-container"
             className={`share-container ${shareIsExpanded
-              ? "share-clicked share-expanded"
+              ? "share-clicked"
               : "share-collapsed"}`}
           >
             <Paper
@@ -118,6 +118,22 @@ class PostsContainer extends Component {
             >
               <span className="share-button">+</span>
             </Paper>
+
+            <div className="share-fields">
+              <TextField
+                className="share-to"
+                id="share-to"
+                name="share-to"
+                hintText="To."
+              />
+              <TextField
+                className="share-body"
+                id="share-body"
+                name="share-body"
+                hintText="Compliment"
+                multiLine={true}
+              />
+            </div>
           </Paper>
         </div>
       );
