@@ -39,6 +39,24 @@ export const Profile = ({currentUser, posts}) => {
         //All received posts from this user
         const receivedPosts = posts.filter(post => post.to._id === currentUser._id);
 
+        badgeColor = numberOfSends => { 
+            if (numberOfSends < 5) {
+            return "red"; //Will update these colors to return specific background images
+            } else if (numberOfSends < 10) {
+            return "blue";
+            } else if (numberOfSends < 20) {
+            return "green";
+            } else if (numberOfSends < 30) {
+            return "purple";
+            } else if (numberOfSends < 40) {
+            return "gold";
+            } else if (numberOfSends < 50) {
+            return "pink";
+            } else {
+            return "maroon";
+            }
+        }
+
         return (
             <div> 
                 <div className="profile-card">
@@ -70,7 +88,7 @@ export const Profile = ({currentUser, posts}) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="card-right">
+                            <div style={{backgroundColor: this.badgeColor(sentPosts.length)}} className="card-right">
                                 <div className="user-image-and-badge">
                                     <div className="user-image">
                                         <PostAvatar src={currentUser.profile.photo} />
