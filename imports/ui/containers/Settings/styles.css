@@ -1,0 +1,21 @@
+.settingsContainer {
+    padding: 0 1rem 1rem;
+}
+.changePhoto {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+}
+.changePasswordBtn {
+    margin: 1rem 0;
+}
+.passwordTextField {
+    margin: 0.5rem 0;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}

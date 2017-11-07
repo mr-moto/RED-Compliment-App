@@ -25,7 +25,6 @@ const register = (e) => {
 }
 
 class RegisterContainer extends Component {
-    state = {};
     render() {
         const { currentUserId } = this.props;
         if (currentUserId) {

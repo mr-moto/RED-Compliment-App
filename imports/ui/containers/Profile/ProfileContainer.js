@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import PropTypes from "prop-types";
 
-import  Suggestions  from '../../components/Suggestions' //Only here to test layout while building
 import { Profile } from './Profile';
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../../../api/posts/posts";
@@ -16,10 +15,12 @@ class ProfileContainer extends Component {
   }
 
     render() {
-        return ( //Remove suggestions later
+
+      const {currentUser, posts} = this.props;
+
+        return ( 
             <div>
-                <Suggestions /> 
-                <Profile />
+                <Profile currentUser={currentUser} posts={posts} />
             </div>
         );
     }
@@ -28,6 +29,9 @@ class ProfileContainer extends Component {
 ProfileContainer.propTypes = {};
 
 export default withTracker(() => {
+  Meteor.subscribe("posts");
+  Meteor.subscribe("users");
+
   return {
     currentUser: Meteor.user(),
     posts: Posts.find({}).fetch(),
