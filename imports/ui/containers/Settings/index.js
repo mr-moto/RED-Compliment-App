@@ -11,10 +11,38 @@ import {
     ListItem
 } from "material-ui";
 
+import {
+    DeleteAccount,
+    ProfileImage,
+    Password
+} from "../../components/Settings";
+
 import "./styles.css";
+
 class SettingsContainer extends Component {
-    state = {};
+    state = {
+        match: true
+    };
     render() {
+        changePassword = e => {
+            e.preventDefault();
+            let oldPassword = e.target.oldPassword.value;
+            let newPassword = e.target.newPassword.value;
+            let newPassword2 = e.target.newPassword2.value;
+            if (
+                newPassword === newPassword2 &&
+                newPassword.length > 0 &&
+                newPassword2.length > 0
+            ) {
+                Accounts.changePassword(oldPassword, newPassword, () => {
+                    location.reload();
+                });
+            } else {
+                this.setState({ match: false });
+                console.log("does not match");
+            }
+        };
+
         const { currentUser } = this.props;
         const style = {
             height: "100%",
@@ -23,38 +51,19 @@ class SettingsContainer extends Component {
             marginTop: 20,
             display: "inline-block"
         };
-        return (
-            <div className="settingsContainer">
-                <Paper
-                    style={style}
-                    zDepth={1}
-                    children={
-                        <div>
-                            <p>Change Profile Picture</p>
-                            <Divider />
-                            <div className="changePhoto">
-                                <Avatar src="images/uxceo-128.jpg" />
-                                <RaisedButton label="Change Photo" />
-                            </div>
-                        </div>
-                    }
-                />
-                <Paper
-                    style={style}
-                    zDepth={1}
-                    children={
-                        <div>
-                            <p>Change Password</p>
-                            <Divider />
-                            <TextField hintText="Old Password" />
-                            <TextField hintText="New Password" />
-                            <TextField hintText="Confirm New Password" />
-                        </div>
-                    }
-                />
-                <Paper style={style} zDepth={1} children={<RaisedButton label="Delete Account" />} />
-            </div>
-        );
+        if (currentUser) {
+            return (
+                <div className="settingsContainer">
+                    <ProfileImage currentUser={currentUser} />
+                    <Password
+                        passwordSubmit={changePassword}
+                        match={this.state.match}
+                    />
+                    <DeleteAccount />
+                </div>
+            );
+        }
+        return <div>Is Loading...</div>;
     }
 }
 
