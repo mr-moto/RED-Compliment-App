@@ -4,11 +4,11 @@ import TextLoop from 'react-text-loop';
 
 import './styles.css';
 
-var splittedText = [ //Dummy text, to be removed later
+var ArrayText = [ //Dummy text, to be removed later
                     "Your shirt is awesome", 
                     "That project looked so professional", 
                     "Your lunch always looks delicious", 
-                    "I love your dog Betsy!", 
+                    "I love your dog  Betsy!", 
                     "You have such a great smile"
                     ];
 
@@ -19,10 +19,10 @@ const Suggestions = () => {
                 <div className="suggestions-box">
                     <div className="suggestions-header">
                         <div> 
-                            <p> Lost for words? Just write what comes to mind! </p>
+                            <p> Lost for words? Here are some ideas! </p>
                         </div>
                         <div className="suggestions-cycle">
-                            <TextLoop children={splittedText} />
+                            <TextLoop style={{fontSize: '14px'}} children={ArrayText} />
                         </div>
                     </div>
                 </div>
