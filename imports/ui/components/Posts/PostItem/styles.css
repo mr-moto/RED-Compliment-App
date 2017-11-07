@@ -1,5 +1,4 @@
 .posts-to {
-  margin: 0.5rem;
   align-self: flex-start;
 }
 .posts-from {
@@ -36,4 +35,5 @@
   flex-flow: column nowrap;
   margin: 2px 0;
   font-size: 0.75rem;
+  padding: 0.5rem;
 }

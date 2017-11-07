@@ -39,7 +39,9 @@ Meteor.methods({
       Posts.insert({
         to,
         body,
-        from
+        from,
+        upvotes: [],
+        sarcasm: []
       });
 
       return true;

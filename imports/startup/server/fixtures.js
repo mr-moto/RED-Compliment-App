@@ -40,37 +40,51 @@ Meteor.startup(() => {
     Posts.insert({
       to: Meteor.users.findOne(),
       from: Meteor.users.findOne({}, { skip: 1 }),
-      body: "This is a beautiful world..."
+      body: "This is a beautiful world...",
+      upvotes: [],
+      sarcasm: []
     });
     Posts.insert({
       to: Meteor.users.findOne({}, { skip: 1 }),
       from: Meteor.users.findOne(),
-      body: "Nice haircut!"
+      body: "Nice haircut!",
+      upvotes: [],
+      sarcasm: []
     });
     Posts.insert({
       to: Meteor.users.findOne(),
       from: Meteor.users.findOne({}, { skip: 1 }),
-      body: "Nice face!!"
+      body: "Nice face!!",
+      upvotes: [],
+      sarcasm: []
     });
     Posts.insert({
       to: Meteor.users.findOne({}, { skip: 1 }),
       from: Meteor.users.findOne(),
-      body: "That shirt of yours is so cool!"
+      body: "That shirt of yours is so cool!",
+      upvotes: [],
+      sarcasm: []
     });
     Posts.insert({
       to: Meteor.users.findOne(),
       from: Meteor.users.findOne({}, { skip: 1 }),
-      body: "Always like talking to you!"
+      body: "Always like talking to you!",
+      upvotes: [],
+      sarcasm: []
     });
     Posts.insert({
       to: Meteor.users.findOne({}, { skip: 1 }),
       from: Meteor.users.findOne(),
-      body: "Always a pleasure chillin"
+      body: "Always a pleasure chillin",
+      upvotes: [],
+      sarcasm: []
     });
     Posts.insert({
       to: Meteor.users.findOne(),
       from: Meteor.users.findOne({}, { skip: 1 }),
-      body: "How are you so good at beer pong?!"
+      body: "How are you so good at beer pong?!",
+      upvotes: [],
+      sarcasm: []
     });
   }
 

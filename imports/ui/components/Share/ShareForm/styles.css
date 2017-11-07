@@ -7,6 +7,12 @@
   z-index: 9999;
   opacity: 0.9;
   background: #3c3737;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+#compliment-form {
+  margin: auto;
 }
 
 .share-fields {
