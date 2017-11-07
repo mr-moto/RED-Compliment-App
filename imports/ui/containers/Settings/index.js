@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import { withTracker } from "meteor/react-meteor-data";
-import {
-    FlatButton,
-    RaisedButton,
-    Avatar,
-    Paper,
-    TextField,
-    Divider,
-    List,
-    ListItem
-} from "material-ui";
+import { CircularProgress } from "material-ui";
 
 import {
     DeleteAccount,
@@ -63,7 +54,11 @@ class SettingsContainer extends Component {
                 </div>
             );
         }
-        return <div>Is Loading...</div>;
+        return (
+            <div className="loader">
+                <CircularProgress />
+            </div>
+        );
     }
 }
 

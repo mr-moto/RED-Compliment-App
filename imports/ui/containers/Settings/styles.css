@@ -13,3 +13,9 @@
 .passwordTextField {
     margin: 0.5rem 0;
 }
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
