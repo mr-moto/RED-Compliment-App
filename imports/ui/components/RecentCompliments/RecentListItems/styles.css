@@ -1,3 +1,7 @@
 .recent-list-item {
   margin-top: 0;
 }
+
+.recent-item-body {
+  word-wrap: break-word;
+}

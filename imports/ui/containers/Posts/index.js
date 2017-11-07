@@ -11,13 +11,10 @@ import MenuItem from "material-ui/MenuItem";
 import RecentList from "../../components/RecentCompliments/RecentList/";
 import RecentListItem from "../../components/RecentCompliments/RecentListItems/";
 import PostItem from "../../components/Posts/PostItem/";
+import ShareForm from "../../components/Share/ShareForm";
 import CircularProgress from "material-ui/CircularProgress";
 
-// forms
-import TextField from "material-ui/TextField";
-import RaisedButton from "material-ui/RaisedButton";
-
-import "./styes";
+import "./styles";
 
 class PostsContainer extends Component {
   state = {
@@ -74,12 +71,12 @@ class PostsContainer extends Component {
 
     this.setState({
       toValue: "",
-      bodyValue: ""
+      bodyValue: "",
+      shareIsExpanded: false
     });
   };
 
   render() {
-    console.log(this.state);
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
       <MenuItem key={2} value={2} primaryText="Most Popular" />,
@@ -87,7 +84,7 @@ class PostsContainer extends Component {
     ];
 
     const { users, posts, currentUser } = this.props;
-    const { shareIsExpanded } = this.state;
+    const { shareIsExpanded, toValue, bodyValue } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
       return (
@@ -133,56 +130,18 @@ class PostsContainer extends Component {
               );
             })}
           </div>
-          // MAKE A SEPARATE COMPONENT FOR THIS
-          <Paper
-            id="share-container"
-            className={`share-container ${shareIsExpanded
-              ? "share-clicked"
-              : "share-collapsed"}`}
-          >
-            <Paper
-              className="share-bar"
-              zDepth={1}
-              rounded={false}
-              style={{ background: "#3c3737" }}
-              onClick={() => {
-                this.showShareForm();
-              }}
-            >
-              <span className="share-button">+</span>
-            </Paper>
-            <form onSubmit={this.addCompliment} id="compliment-form">
-              <div className="share-fields">
-                <TextField
-                  value={this.state.toValue}
-                  className="share-to"
-                  id="share-to"
-                  name="shareTo"
-                  hintText="To."
-                  onChange={this.handleToChange}
-                />
-                <TextField
-                  value={this.state.bodyValue}
-                  onChange={this.handleBodyChange}
-                  className="share-body"
-                  id="share-body"
-                  name="shareBody"
-                  hintText="Compliment"
-                  multiLine={true}
-                />
-                <RaisedButton
-                  label="Submit"
-                  type="submit"
-                  primary={true}
-                  style={{ margin: 12 }}
-                />
-              </div>
-            </form>
-          </Paper>
+          <ShareForm
+            shareIsExpanded={shareIsExpanded}
+            showShareForm={this.showShareForm}
+            addCompliment={this.addCompliment}
+            toValue={toValue}
+            bodyValue={bodyValue}
+            handleToChange={this.handleToChange}
+            handleBodyChange={this.handleBodyChange}
+          />
         </div>
       );
     }
-    console.log(this.state.shareIsExpanded);
     return (
       <div className="loading-container">
         <CircularProgress

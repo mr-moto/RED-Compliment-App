@@ -1,4 +1,6 @@
 import { Mongo } from "meteor/mongo";
+import React from "react";
+import ShareConfirmation from "../../ui/components/Share/ShareConfirmation";
 
 export const Posts = new Mongo.Collection("posts");
 
