@@ -88,10 +88,10 @@ export const Profile = ({currentUser, posts}) => {
                                     </div>
                                 </div>
                             </div>
-                            <div style={{backgroundColor: this.badgeColor(sentPosts.length)}} className="card-right">
-                                <div className="user-image-and-badge">
+                            <div className="card-right">
+                                <div style={{backgroundColor: this.badgeColor(sentPosts.length)}} className="user-image-and-badge">
                                     <div className="user-image">
-                                        <PostAvatar src={currentUser.profile.photo} />
+                                        <PostAvatar avatarSize={100} src={currentUser.profile.photo} />
                                     </div>
                                     <div className="badge-overlay">
                                     </div>
