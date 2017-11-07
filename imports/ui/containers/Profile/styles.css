@@ -1,13 +1,15 @@
-/*.profile-card {
-    margin-bottom: 20px;
-}*/
-
 .tab {
     font: 36px;
     padding-top: 20px;
     margin-bottom: 16px;
     font-weight: 400;
     color: white;
+}
+
+.user-image-and-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card-structure {
