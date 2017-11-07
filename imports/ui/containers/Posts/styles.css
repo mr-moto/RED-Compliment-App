@@ -3,7 +3,6 @@
 }
 
 .post-wrapper {
-  margin: 1rem;
   height: 100%;
   flex-flow: column nowrap;
 }
@@ -14,7 +13,8 @@
 
 .posts-container,
 .post-wrapper,
-.filter-container {
+.filter-container,
+.loading-container {
   display: flex;
 }
 
@@ -25,13 +25,28 @@
 }
 
 .posts-container {
-  flex-flow: column nowrap;
+  flex-flow: column-reverse nowrap;
 }
 
 .recent-subtitle {
   margin: 0 1rem;
   border-bottom: 1px solid #ed4242;
   padding: 1rem;
+}
+
+.loading-container {
+  height: 80vh;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-loader {
+  margin: 1.75rem;
+}
+
+.loading-text {
+  color: #fff;
 }
 
 li {

@@ -1,3 +1,4 @@
 .posts-body {
   margin: 1rem;
+  word-wrap: break-word;
 }

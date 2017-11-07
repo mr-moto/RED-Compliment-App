@@ -11,26 +11,69 @@ import MenuItem from "material-ui/MenuItem";
 import RecentList from "../../components/RecentCompliments/RecentList/";
 import RecentListItem from "../../components/RecentCompliments/RecentListItems/";
 import PostItem from "../../components/Posts/PostItem/";
+import ShareForm from "../../components/Share/ShareForm";
+import CircularProgress from "material-ui/CircularProgress";
 
-import "./styes";
+import "./styles";
 
 class PostsContainer extends Component {
   state = {
-    value: null
+    shareIsExpanded: false,
+    toValue: "",
+    bodyValue: ""
   };
 
-  handleChange = (event, index, value) => this.setState({ value });
+  handleFilterChange = (event, index, value) => this.setState({ value });
+
+  handleToChange = (event, index, toValue) =>
+    this.setState({ toValue: event.target.value });
+
+  handleBodyChange = (event, index, bodyValue) =>
+    this.setState({ bodyValue: event.target.value });
 
   getRecentCompliments = item => {
     let itemsContainer = [];
     let i = 0;
 
     while (i < 3 && i < item.length) {
-      itemsContainer.push(item[i].body);
+      itemsContainer.push(item[item.length - 1 - i].body);
       i++;
     }
 
     return itemsContainer;
+  };
+
+  showShareForm = e => {
+    const { shareIsExpanded } = this.state;
+
+    shareIsExpanded
+      ? this.setState({
+          shareIsExpanded: false
+        })
+      : this.setState({
+          shareIsExpanded: true
+        });
+  };
+
+  addCompliment = e => {
+    e.preventDefault();
+    let to = e.target.shareTo.value;
+    let body = e.target.shareBody.value;
+    let from = this.props.currentUser;
+
+    let user = Meteor.call(
+      "posts.addCompliment",
+      to,
+      body,
+      from,
+      this.props.users
+    );
+
+    this.setState({
+      toValue: "",
+      bodyValue: "",
+      shareIsExpanded: false
+    });
   };
 
   render() {
@@ -40,15 +83,14 @@ class PostsContainer extends Component {
       <MenuItem key={3} value={3} primaryText="Trending" />
     ];
 
-    const { users, posts } = this.props;
-
-    console.log(this.props);
+    const { users, posts, currentUser } = this.props;
+    const { shareIsExpanded, toValue, bodyValue } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
       return (
         <div className="post-wrapper">
           <div className="recent-container">
-            <Paper className="posts-paper" zDepth={1}>
+            <Paper className="posts-paper" zDepth={1} rounded={false}>
               <h2 className="recent-subtitle">
                 Your Recently Received Compliments
               </h2>
@@ -67,7 +109,7 @@ class PostsContainer extends Component {
           <div className="filter-container">
             <SelectField
               value={this.state.value}
-              onChange={this.handleChange}
+              onChange={this.handleFilterChange}
               floatingLabelText="Styled Floating Label Text"
               floatingLabelStyle={{ color: "#ed4242" }}
               labelStyle={{ color: "white" }}
@@ -88,10 +130,29 @@ class PostsContainer extends Component {
               );
             })}
           </div>
+          <ShareForm
+            shareIsExpanded={shareIsExpanded}
+            showShareForm={this.showShareForm}
+            addCompliment={this.addCompliment}
+            toValue={toValue}
+            bodyValue={bodyValue}
+            handleToChange={this.handleToChange}
+            handleBodyChange={this.handleBodyChange}
+          />
         </div>
       );
     }
-    return <div>Is Loading...</div>;
+    return (
+      <div className="loading-container">
+        <CircularProgress
+          className="page-loader"
+          color="#ed4242"
+          size={80}
+          thickness={5}
+        />
+        <p className="loading-text">Loading...</p>
+      </div>
+    );
   }
 }
 

@@ -17,6 +17,7 @@
 
 .posts-footer {
   justify-content: space-between;
+  margin-top: 0.5rem;
 }
 
 .posts-footer-left {

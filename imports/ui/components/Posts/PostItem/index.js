@@ -9,7 +9,7 @@ import "./styles";
 
 const PostItem = ({ content, to, from }) => {
   return (
-    <Paper className="post-item-container" zDepth={1}>
+    <Paper className="post-item-container" zDepth={1} rounded={false}>
       <p className="posts-to">To. {to.profile.firstName}</p>
       <PostBody content={content} />
       <div className="posts-footer">
