@@ -91,7 +91,7 @@ export const Profile = ({currentUser, posts}) => {
                             <div className="card-right">
                                 <div style={{backgroundColor: this.badgeColor(sentPosts.length)}} className="user-image-and-badge">
                                     <div className="user-image">
-                                        <PostAvatar avatarSize={100} src={currentUser.profile.photo} />
+                                        <PostAvatar avatarSize={80} src={currentUser.profile.photo} />
                                     </div>
                                     <div className="badge-overlay">
                                     </div>
@@ -110,7 +110,7 @@ export const Profile = ({currentUser, posts}) => {
                             <Tab 
                                 style={styles.tab} 
                                 label={`Compliments Received (${receivedPosts.length})`}
-                                style={{margin: '0px', padding: '0px'}}
+                                style={{margin: '0px', padding: '0px', fontSize: '12px'}}
                             >
                                 <div>
                                     {receivedPosts.map(post => {
@@ -128,7 +128,7 @@ export const Profile = ({currentUser, posts}) => {
                             <Tab 
                                 style={styles.tab} 
                                 label={`Compliments Sent (${sentPosts.length})`} 
-                                style={{margin: '0px', padding: '0px'}}
+                                style={{margin: '0px', padding: '0px', fontSize: '12px'}}
                             >
                                 <div>
                                     {sentPosts.map(post => {
