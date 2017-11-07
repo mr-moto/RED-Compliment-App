@@ -52,35 +52,14 @@ class PostsContainer extends Component {
 
   addCompliment = e => {
     e.preventDefault();
-
     let to = e.target.shareTo.value;
     let body = e.target.shareBody.value;
     let from = this.props.currentUser;
-    // set some rules for to
-    // search for matches and reassign to with obj
-    to = this.props.users.find(user => {
-      name = `${user.profile.firstName} ${user.profile.lastName}`;
-      if (to === name) {
-        return name;
-      } else {
-        return undefined;
-      }
-    });
 
-    if (
-      to !== undefined &&
-      body.length > 0 &&
-      from === this.props.currentUser
-    ) {
-      Posts.insert({
-        to,
-        body,
-        from
-      });
-      console.log("added successfully!");
-    } else {
-      console.log("failed to add!");
-    }
+    Meteor.call("posts.addCompliment", to, body, from, this.props.users);
+
+    e.target.shareTo.value = "";
+    e.target.shareBody.value = "";
   };
 
   render() {
