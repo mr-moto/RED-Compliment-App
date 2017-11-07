@@ -1,10 +1,15 @@
 .suggestions-box {
-    margin: 20px;
+    margin: 15px;
     padding: 10px;
 }
 
 .suggestions-header {
     margin: 10px 0px;
+}
+
+.suggestions-header p {
+    font-size: 14px;
+    text-align: center;
 }
 
 .suggestions-cycle {
