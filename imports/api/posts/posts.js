@@ -22,7 +22,11 @@ Meteor.methods({
       }
     });
 
-    toID = to._id;
+    if (to !== undefined) {
+      toID = to._id;
+    } else {
+      return console.log("No user with that name.");
+    }
 
     if (
       toID !== undefined &&
@@ -35,9 +39,10 @@ Meteor.methods({
         body,
         from
       });
-      console.log("added successfully!");
+
+      return true;
     } else {
-      console.log("failed to add!");
+      return false;
     }
   }
 });

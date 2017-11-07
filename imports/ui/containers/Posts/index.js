@@ -21,10 +21,18 @@ import "./styes";
 
 class PostsContainer extends Component {
   state = {
-    shareIsExpanded: false
+    shareIsExpanded: false,
+    toValue: "",
+    bodyValue: ""
   };
 
-  handleChange = (event, index, value) => this.setState({ value });
+  handleFilterChange = (event, index, value) => this.setState({ value });
+
+  handleToChange = (event, index, toValue) =>
+    this.setState({ toValue: event.target.value });
+
+  handleBodyChange = (event, index, bodyValue) =>
+    this.setState({ bodyValue: event.target.value });
 
   getRecentCompliments = item => {
     let itemsContainer = [];
@@ -56,13 +64,22 @@ class PostsContainer extends Component {
     let body = e.target.shareBody.value;
     let from = this.props.currentUser;
 
-    Meteor.call("posts.addCompliment", to, body, from, this.props.users);
+    let user = Meteor.call(
+      "posts.addCompliment",
+      to,
+      body,
+      from,
+      this.props.users
+    );
 
-    e.target.shareTo.value = "";
-    e.target.shareBody.value = "";
+    this.setState({
+      toValue: "",
+      bodyValue: ""
+    });
   };
 
   render() {
+    console.log(this.state);
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
       <MenuItem key={2} value={2} primaryText="Most Popular" />,
@@ -95,7 +112,7 @@ class PostsContainer extends Component {
           <div className="filter-container">
             <SelectField
               value={this.state.value}
-              onChange={this.handleChange}
+              onChange={this.handleFilterChange}
               floatingLabelText="Styled Floating Label Text"
               floatingLabelStyle={{ color: "#ed4242" }}
               labelStyle={{ color: "white" }}
@@ -116,6 +133,7 @@ class PostsContainer extends Component {
               );
             })}
           </div>
+          // MAKE A SEPARATE COMPONENT FOR THIS
           <Paper
             id="share-container"
             className={`share-container ${shareIsExpanded
@@ -136,12 +154,16 @@ class PostsContainer extends Component {
             <form onSubmit={this.addCompliment} id="compliment-form">
               <div className="share-fields">
                 <TextField
+                  value={this.state.toValue}
                   className="share-to"
                   id="share-to"
                   name="shareTo"
                   hintText="To."
+                  onChange={this.handleToChange}
                 />
                 <TextField
+                  value={this.state.bodyValue}
+                  onChange={this.handleBodyChange}
                   className="share-body"
                   id="share-body"
                   name="shareBody"
