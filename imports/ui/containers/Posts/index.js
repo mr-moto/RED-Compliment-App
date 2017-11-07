@@ -12,7 +12,10 @@ import RecentList from "../../components/RecentCompliments/RecentList/";
 import RecentListItem from "../../components/RecentCompliments/RecentListItems/";
 import PostItem from "../../components/Posts/PostItem/";
 import CircularProgress from "material-ui/CircularProgress";
+
+// forms
 import TextField from "material-ui/TextField";
+import RaisedButton from "material-ui/RaisedButton";
 
 import "./styes";
 
@@ -47,6 +50,39 @@ class PostsContainer extends Component {
         });
   };
 
+  addCompliment = e => {
+    e.preventDefault();
+
+    let to = e.target.shareTo.value;
+    let body = e.target.shareBody.value;
+    let from = this.props.currentUser;
+    // set some rules for to
+    // search for matches and reassign to with obj
+    to = this.props.users.find(user => {
+      name = `${user.profile.firstName} ${user.profile.lastName}`;
+      if (to === name) {
+        return name;
+      } else {
+        return undefined;
+      }
+    });
+
+    if (
+      to !== undefined &&
+      body.length > 0 &&
+      from === this.props.currentUser
+    ) {
+      Posts.insert({
+        to,
+        body,
+        from
+      });
+      console.log("added successfully!");
+    } else {
+      console.log("failed to add!");
+    }
+  };
+
   render() {
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
@@ -54,7 +90,7 @@ class PostsContainer extends Component {
       <MenuItem key={3} value={3} primaryText="Trending" />
     ];
 
-    const { users, posts } = this.props;
+    const { users, posts, currentUser } = this.props;
     const { shareIsExpanded } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
@@ -118,22 +154,29 @@ class PostsContainer extends Component {
             >
               <span className="share-button">+</span>
             </Paper>
-
-            <div className="share-fields">
-              <TextField
-                className="share-to"
-                id="share-to"
-                name="share-to"
-                hintText="To."
-              />
-              <TextField
-                className="share-body"
-                id="share-body"
-                name="share-body"
-                hintText="Compliment"
-                multiLine={true}
-              />
-            </div>
+            <form onSubmit={this.addCompliment} id="compliment-form">
+              <div className="share-fields">
+                <TextField
+                  className="share-to"
+                  id="share-to"
+                  name="shareTo"
+                  hintText="To."
+                />
+                <TextField
+                  className="share-body"
+                  id="share-body"
+                  name="shareBody"
+                  hintText="Compliment"
+                  multiLine={true}
+                />
+                <RaisedButton
+                  label="Submit"
+                  type="submit"
+                  primary={true}
+                  style={{ margin: 12 }}
+                />
+              </div>
+            </form>
           </Paper>
         </div>
       );
