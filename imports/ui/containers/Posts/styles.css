@@ -26,6 +26,7 @@
 
 .posts-container {
   flex-flow: column-reverse nowrap;
+  padding-bottom: 10vh;
 }
 
 .recent-subtitle {

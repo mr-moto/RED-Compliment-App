@@ -12,6 +12,18 @@ if (Meteor.isServer) {
 
 // POSTS METHODS HERE
 Meteor.methods({
+  "posts.removeUserId"(post, collection) {
+    Posts.update(
+      { _id: `${post}` },
+      { $pull: { [collection]: `${Meteor.user()._id}` } }
+    );
+  },
+  "posts.addUserId"(post, collection) {
+    Posts.update(
+      { _id: `${post}` },
+      { $addToSet: { [collection]: `${Meteor.user()._id}` } }
+    );
+  },
   "posts.addCompliment"(to, body, from, users) {
     // set some rules for to
     // search for matches and reassign to with obj
