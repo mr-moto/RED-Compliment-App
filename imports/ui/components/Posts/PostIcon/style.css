@@ -3,3 +3,7 @@
   flex-flow: row nowrap;
   margin-left: 1rem;
 }
+
+.posts-social-color-active {
+  color: #ed4242;
+}
