@@ -35,6 +35,21 @@ Meteor.startup(() => {
   } else {
     user = `${Meteor.users.findOne()._id}`;
   }
+  if (Quotes.find().count() === 0) {
+    Quotes.insert({
+      quote: "shamwowowowowowowowo"
+    });
+    Quotes.insert({
+      quote: "yesyesyes"
+    });
+    Quotes.insert({
+      quote: "and and and"
+    });
+    Quotes.insert({
+      quote: "💩 💩 💩 💩"
+    });
+  }
+
 
   if (Posts.find().count() === 0) {
     Posts.insert({
