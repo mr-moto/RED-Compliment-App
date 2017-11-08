@@ -21,12 +21,15 @@ const PostItem = ({ post, content, to, from }) => {
                 collection="upvotes"
                 iconName="fa fa-thumbs-o-up"
               />
-              <PostIcon post={post} iconName="fa fa-share" />
-              <PostIcon post={post} iconName="fa fa-hand-peace-o" />
+              <PostIcon
+                post={post}
+                collection="dislike"
+                iconName="fa fa-thumbs-o-down"
+              />
               <PostIcon
                 post={post}
                 collection="sarcasm"
-                iconName="fa fa-heart-o"
+                iconName="fa fa-hand-peace-o"
               />
             </PostIconList>
           </div>
