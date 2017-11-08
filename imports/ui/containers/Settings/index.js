@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withTracker } from "meteor/react-meteor-data";
 import { CircularProgress } from "material-ui";
 
+import { firebaseStorage } from "../../../api/firebase/firebase";
 import {
     DeleteAccount,
     ProfileImage,
@@ -12,9 +13,14 @@ import "./styles.css";
 
 class SettingsContainer extends Component {
     state = {
-        match: true
+        match: true,
+        imageUrl: "",
+        uploadProgress: 0
     };
+
     render() {
+        const { currentUser, currentUserId } = this.props;
+
         changePassword = e => {
             e.preventDefault();
             let oldPassword = e.target.oldPassword.value;
@@ -34,7 +40,43 @@ class SettingsContainer extends Component {
             }
         };
 
-        const { currentUser } = this.props;
+        imageUploadHandler = e => {
+            // this.setState({uploadProgress: 0})
+            const file = e.target.files[0];
+            const storageRef = firebaseStorage.ref(
+                currentUserId + "/" + file.name
+            );
+            // storageRef.put(file).then(snapshot => {
+            //     this.setState({ imageUrl: snapshot.downloadURL });
+            //     console.log(snapshot)
+
+            //     const percentage =
+            //         snapshot.bytesTransferred / snapshot.totalBytes * 100;
+            //     this.setState({ uploadProgress: percentage });
+            // });
+
+            const uploadTask = storageRef.put(file);
+            uploadTask.on(
+                "state_changed",
+                (snapshot = () => {
+                    var percent =
+                        uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes * 100;
+                    this.setState({ uploadProgress: percent });
+                }),
+                function(error) {
+                    // Handle unsuccessful uploads
+                    // console.log(error)
+                },
+                (snapshot = () => {
+                    // console.log(snapshot)
+                    // Handle successful uploads on complete
+                    this.setState({
+                        imageUrl: uploadTask.snapshot.downloadURL
+                    });
+                })
+            );
+        };
+
         const style = {
             height: "100%",
             width: "100%",
@@ -45,7 +87,12 @@ class SettingsContainer extends Component {
         if (currentUser) {
             return (
                 <div className="settingsContainer">
-                    <ProfileImage currentUser={currentUser} />
+                    <ProfileImage
+                        currentUser={currentUser}
+                        uploadHandler={imageUploadHandler}
+                        imageUrl={this.state.imageUrl}
+                        progress={this.state.uploadProgress}
+                    />
                     <Password
                         passwordSubmit={changePassword}
                         match={this.state.match}
@@ -64,6 +111,7 @@ class SettingsContainer extends Component {
 
 export default withTracker(() => {
     return {
-        currentUser: Meteor.user()
+        currentUser: Meteor.user(),
+        currentUserId: Meteor.userId()
     };
 })(SettingsContainer);

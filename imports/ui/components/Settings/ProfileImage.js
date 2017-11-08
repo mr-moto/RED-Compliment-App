@@ -1,7 +1,18 @@
 import React from "react";
-import { RaisedButton, Paper, Avatar, Divider } from "material-ui";
+import {
+    config,
+    firebaseApp,
+    firebaseStorage
+} from "../../../api/firebase//firebase";
+import {
+    RaisedButton,
+    Paper,
+    Avatar,
+    Divider,
+    LinearProgress
+} from "material-ui";
 
-const ProfileImage = ({ currentUser }) => {
+const ProfileImage = ({ currentUser, uploadHandler, imageUrl, progress }) => {
     const style = {
         height: "100%",
         width: "100%",
@@ -9,6 +20,7 @@ const ProfileImage = ({ currentUser }) => {
         marginTop: 20,
         display: "inline-block"
     };
+
     return (
         <Paper
             style={style}
@@ -18,9 +30,19 @@ const ProfileImage = ({ currentUser }) => {
                     <p>Change Profile Picture</p>
                     <Divider />
                     <div className="changePhoto">
-                        <Avatar src={currentUser.profile.photo} size={50} />
-                        <RaisedButton label="Change Photo" />
+                        <Avatar src={imageUrl} size={50} />
+                        <RaisedButton
+                            label="Change Photo"
+                            containerElement="label"
+                        >
+                            <input
+                                type="file"
+                                hidden
+                                onChange={uploadHandler}
+                            />
+                        </RaisedButton>
                     </div>
+                     <LinearProgress mode="determinate" value={progress} />
                 </div>
             }
         />
