@@ -83,7 +83,7 @@ class PostsContainer extends Component {
       <MenuItem key={3} value={3} primaryText="Trending" />
     ];
 
-    const { users, posts, currentUser } = this.props;
+    const { users, posts, currentUser, suggestions } = this.props;
     const { shareIsExpanded, toValue, bodyValue } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
@@ -138,6 +138,7 @@ class PostsContainer extends Component {
             bodyValue={bodyValue}
             handleToChange={this.handleToChange}
             handleBodyChange={this.handleBodyChange}
+            suggestionsList={suggestions["0"]}
           />
         </div>
       );
@@ -161,10 +162,12 @@ Posts.propTypes = {};
 export default withTracker(() => {
   Meteor.subscribe("posts");
   Meteor.subscribe("users");
+  Meteor.subscribe("suggestions");
 
   return {
     currentUser: Meteor.user(),
     users: Meteor.users.find({}).fetch(),
-    posts: Posts.find({}).fetch()
+    posts: Posts.find({}).fetch(),
+    suggestions: Suggestions.find().fetch()
   };
 })(PostsContainer);

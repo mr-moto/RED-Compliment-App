@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 import Paper from "material-ui/Paper";
+import Suggestions from "../../../components/Suggestions";
 
 import "./styles";
 
@@ -14,7 +15,8 @@ const ShareForm = ({
   toValue,
   bodyValue,
   handleToChange,
-  handleBodyChange
+  handleBodyChange,
+  suggestionsList
 }) => {
   return (
     <div>
@@ -89,6 +91,7 @@ const ShareForm = ({
               style={{ margin: 12 }}
             />
           </div>
+          <Suggestions suggestionsList={suggestionsList} />
         </form>
       </Paper>
     </div>
