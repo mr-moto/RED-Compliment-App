@@ -21,6 +21,7 @@ const PostItem = ({ post, content, to, from }) => {
                 collection="upvotes"
                 iconName="fa fa-thumbs-o-up"
               />
+<<<<<<< HEAD
               <PostIcon
                 post={post}
                 collection="dislike"
@@ -30,6 +31,14 @@ const PostItem = ({ post, content, to, from }) => {
                 post={post}
                 collection="sarcasm"
                 iconName="fa fa-hand-peace-o"
+=======
+              <PostIcon post={post} iconName="fa fa-share" />
+              <PostIcon post={post} iconName="fa fa-hand-peace-o" />
+              <PostIcon
+                post={post}
+                collection="sarcasm"
+                iconName="fa fa-heart-o"
+>>>>>>> 6588a016f74edd561a2ee465fae18e20de40b772
               />
             </PostIconList>
           </div>
