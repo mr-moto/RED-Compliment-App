@@ -42,7 +42,8 @@ const ProfileImage = ({ currentUser, uploadHandler, imageUrl, progress }) => {
                             />
                         </RaisedButton>
                     </div>
-                     <LinearProgress mode="determinate" value={progress} />
+                    {progress === 0 ? null : <LinearProgress mode="determinate" value={progress} />}
+                     
                 </div>
             }
         />

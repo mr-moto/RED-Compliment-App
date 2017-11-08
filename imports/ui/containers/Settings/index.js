@@ -71,7 +71,8 @@ class SettingsContainer extends Component {
                     // console.log(snapshot)
                     // Handle successful uploads on complete
                     this.setState({
-                        imageUrl: uploadTask.snapshot.downloadURL
+                        imageUrl: uploadTask.snapshot.downloadURL,
+                        uploadProgress: 0
                     });
                 })
             );
