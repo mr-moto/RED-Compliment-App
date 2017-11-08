@@ -74,6 +74,7 @@ class SettingsContainer extends Component {
                         imageUrl: uploadTask.snapshot.downloadURL,
                         uploadProgress: 0
                     });
+                    Meteor.users.update({_id: currentUserId}, {$set: {"profile.photo": uploadTask.snapshot.downloadURL}});
                 })
             );
         };
@@ -111,6 +112,7 @@ class SettingsContainer extends Component {
 }
 
 export default withTracker(() => {
+
     return {
         currentUser: Meteor.user(),
         currentUserId: Meteor.userId()
