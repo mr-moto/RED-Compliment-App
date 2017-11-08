@@ -126,6 +126,7 @@ class PostsContainer extends Component {
                   content={post.body}
                   to={post.to}
                   from={post.from}
+                  post={post._id}
                 />
               );
             })}
