@@ -12,10 +12,16 @@ class PostIcon extends Component {
     };
   }
 
-  handleAction = collection => {
-    const { post } = this.props;
+  componentDidMount() {
+    const { post, collection } = this.props;
+    const { isFound } = this.state;
 
-    // check to see if current user has already voted
+    if (this.state !== undefined) {
+      this.isFound(post, collection);
+    }
+  }
+
+  isFound = (post, collection) => {
     const isFound = Posts.find({
       _id: `${post}`,
       [collection]: { $elemMatch: { $eq: `${Meteor.user()._id}` } }
@@ -23,28 +29,39 @@ class PostIcon extends Component {
 
     if (isFound.length) {
       this.setState({ isFound: true });
-      Posts.update(
-        { _id: `${post}` },
-        { $pull: { [collection]: `${Meteor.user()._id}` } }
-      );
     } else {
       this.setState({ isFound: false });
-      Posts.update(
-        { _id: `${post}` },
-        { $addToSet: { [collection]: `${Meteor.user()._id}` } }
-      );
+    }
+  };
+
+  handleAction = collection => {
+    const { post } = this.props;
+    const { isFound } = this.state;
+
+    if (isFound) {
+      Meteor.call("posts.removeUserId", post, collection, error => {
+        !error ? this.setState({ isFound: false }) : console.log(error);
+      });
+    } else {
+      Meteor.call("posts.addUserId", post, collection, error => {
+        !error ? this.setState({ isFound: true }) : console.log(error);
+      });
     }
   };
 
   render() {
     const { collection, iconName } = this.props;
+    const { isFound } = this.state;
+
     return (
       <li className="posts-social-list-item">
         <i
+          className={`${iconName} ${isFound
+            ? "posts-social-color-active"
+            : null}`}
           onClick={() => {
             this.handleAction(collection);
           }}
-          className={iconName}
           aria-hidden="true"
         />
       </li>
