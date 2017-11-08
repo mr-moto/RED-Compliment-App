@@ -4,15 +4,11 @@ import TextLoop from 'react-text-loop';
 
 import './styles.css';
 
-var ArrayText = [ //Dummy text, to be removed later
-                    "Your shirt is awesome", 
-                    "That project looked so professional", 
-                    "Your lunch always looks delicious", 
-                    "I love your dog  Betsy!", 
-                    "You have such a great smile"
-                    ];
+const Suggestions = (suggestionsList) => {
 
-const Suggestions = () => {
+    const suggestionsWithId = suggestionsList.suggestionsList;
+    const trimmedSuggestions = Object.keys(suggestionsWithId).map(key => suggestionsWithId[key]).slice(0, -1);
+
     return(
         <div className="suggestions">
             <Card> 
@@ -22,7 +18,7 @@ const Suggestions = () => {
                             <p> Lost for words? Here are some ideas! </p>
                         </div>
                         <div className="suggestions-cycle">
-                            <TextLoop style={{fontSize: '14px'}} children={ArrayText} />
+                            <TextLoop style={{fontSize: '14px'}} children={trimmedSuggestions} />
                         </div>
                     </div>
                 </div>
