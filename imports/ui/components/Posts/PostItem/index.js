@@ -7,7 +7,7 @@ import PostIcon from "../PostIcon/";
 import PostBody from "../PostBody/";
 import "./styles";
 
-const PostItem = ({ content, to, from }) => {
+const PostItem = ({ post, content, to, from }) => {
   return (
     <Paper className="post-item-container" zDepth={1} rounded={false}>
       <p className="posts-to">To. {to.profile.firstName}</p>
@@ -16,10 +16,18 @@ const PostItem = ({ content, to, from }) => {
         <div className="posts-footer-left">
           <div className="posts-social-icons-container">
             <PostIconList>
-              <PostIcon iconName="fa fa-thumbs-o-up" />
-              <PostIcon iconName="fa fa-share" />
-              <PostIcon iconName="fa fa-hand-peace-o" />
-              <PostIcon iconName="fa fa-heart-o" />
+              <PostIcon
+                post={post}
+                collection="upvotes"
+                iconName="fa fa-thumbs-o-up"
+              />
+              <PostIcon post={post} iconName="fa fa-share" />
+              <PostIcon post={post} iconName="fa fa-hand-peace-o" />
+              <PostIcon
+                post={post}
+                collection="sarcasm"
+                iconName="fa fa-heart-o"
+              />
             </PostIconList>
           </div>
         </div>
@@ -27,7 +35,7 @@ const PostItem = ({ content, to, from }) => {
           <p className="posts-from">
             From,<br /> {from.profile.firstName}
           </p>
-          <PostAvatar avatarSize={50} src={from.profile.photo}/>
+          <PostAvatar avatarSize={50} src={from.profile.photo} />
         </div>
       </div>
     </Paper>
