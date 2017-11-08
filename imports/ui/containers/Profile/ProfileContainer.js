@@ -7,7 +7,7 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../../../api/posts/posts";
 import { Badges } from "../../../api/badges/badges";
 
-import  Suggestions  from '../../components/Suggestions';
+// import  Suggestions  from '../../components/Suggestions';
 
 class ProfileContainer extends Component {
 
@@ -21,7 +21,6 @@ class ProfileContainer extends Component {
 
         return ( 
             <div>
-                <Suggestions />
                 <Profile currentUser={currentUser} posts={posts} />
             </div>
         );
@@ -30,9 +29,10 @@ class ProfileContainer extends Component {
 
 ProfileContainer.propTypes = {};
 
-export default withTracker((skip, take?) => {
+export default withTracker(() => {
   Meteor.subscribe("posts");
   Meteor.subscribe("users");
+  Meteor.subscribe("suggestions");
 
   return {
     currentUser: Meteor.user(),

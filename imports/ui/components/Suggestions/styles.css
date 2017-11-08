@@ -1,3 +1,8 @@
+.suggestions {
+    opacity: 0.9;
+    margin-top: 40px;
+}
+
 .suggestions-box {
     margin: 15px;
     padding: 10px;

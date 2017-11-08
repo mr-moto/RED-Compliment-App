@@ -106,4 +106,19 @@ Meteor.startup(() => {
   Meteor.publish("users", function usersPublication() {
     return Meteor.users.find();
   });
+
+  if (Suggestions.find().count() === 0) {
+
+    Suggestions.insert([
+      "Your beer pong skills are insane",
+      "That project looked so professional", 
+      "Your lunch always looks delicious", 
+      "I love your dog Betsy!", 
+      "You have such a friendly smile",
+      "Thanks for helping me with my project!"
+    ]);
+  }
+
+  // Suggestions.remove({});
+
 });
