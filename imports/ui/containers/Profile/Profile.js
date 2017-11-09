@@ -49,8 +49,6 @@ export const Profile = ({currentUser, posts}) => {
             return "Badge4";
             } else {
             return "Badge5";
-<<<<<<< HEAD
-=======
         }
     }
 
@@ -66,14 +64,10 @@ export const Profile = ({currentUser, posts}) => {
             } else {
             return "";
                 }
->>>>>>> bd64afd5f7f9bf48267acc88d2bfd0b8af67d248
         }
     }
 
-<<<<<<< HEAD
-=======
         badgeUpgrade = numberOfSends => {
->>>>>>> Restyled and display # of compliments needed to upgrade badge
             if (numberOfSends < 5) {
             return 5 - numberOfSends; 
             } else if (numberOfSends < 10) {
@@ -86,12 +80,8 @@ export const Profile = ({currentUser, posts}) => {
             return "";
                 }
         }
-<<<<<<< HEAD
-    }
-=======
 
         return (
->>>>>>> Restyled and display # of compliments needed to upgrade badge
             <div> 
                 <div className="profile-card">
                     <Card>
