@@ -10,6 +10,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 140px;
+    width: 110px;
 }
 
 .card-structure {

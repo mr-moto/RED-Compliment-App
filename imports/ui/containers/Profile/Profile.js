@@ -7,7 +7,7 @@ import PostAvatar from "../../components/Posts/PostAvatar/";
 
 import './styles.css';
 
-const styles = {
+const styles = {    
   tab: {
     fontSize: 12,
     paddingTop: 12,
@@ -39,23 +39,19 @@ export const Profile = ({currentUser, posts}) => {
         //All received posts from this user
         const receivedPosts = posts.filter(post => post.to._id === currentUser._id);
 
-        badgeColor = numberOfSends => { 
+        badgePicker = numberOfSends => { 
             if (numberOfSends < 5) {
-            return "red"; //Will update these colors to return specific background images
+            return "Badge1"; //Will update these colors to return specific background images
             } else if (numberOfSends < 10) {
-            return "blue";
+            return "Badge2";
             } else if (numberOfSends < 20) {
-            return "green";
+            return "Badge3";
             } else if (numberOfSends < 30) {
-            return "purple";
-            } else if (numberOfSends < 40) {
-            return "gold";
-            } else if (numberOfSends < 50) {
-            return "pink";
+            return "Badge4";
             } else {
-            return "maroon";
-            }
+            return "Badge5";
         }
+    }
 
         return (
             <div> 
@@ -89,9 +85,9 @@ export const Profile = ({currentUser, posts}) => {
                                 </div>
                             </div>
                             <div className="card-right">
-                                <div style={{backgroundColor: this.badgeColor(sentPosts.length)}} className="user-image-and-badge">
+                                <div style={{backgroundImage: `url(/images/${badgePicker(sentPosts.length)}.jpg)`, backgroundSize: 'cover' }} className="user-image-and-badge">
                                     <div className="user-image">
-                                        <PostAvatar avatarSize={80} src={currentUser.profile.photo} />
+                                        <PostAvatar avatarSize={65} src={currentUser.profile.photo} />
                                     </div>
                                     <div className="badge-overlay">
                                     </div>
