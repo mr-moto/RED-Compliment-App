@@ -30,7 +30,7 @@ const ProfileImage = ({ currentUser, uploadHandler, imageUrl, progress }) => {
                     <p>Change Profile Picture</p>
                     <Divider />
                     <div className="changePhoto">
-                        <Avatar src={imageUrl} size={50} />
+                        <Avatar src={currentUser.profile.photo} size={50} />
                         <RaisedButton
                             label="Change Photo"
                             containerElement="label"
