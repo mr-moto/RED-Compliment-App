@@ -31,13 +31,22 @@ class PostsContainer extends Component {
   handleBodyChange = (event, index, bodyValue) =>
     this.setState({ bodyValue: event.target.value });
 
-  getRecentCompliments = item => {
-    let itemsContainer = [];
-    let i = 0;
+  getRecentCompliments = () => {
+    const { currentUser, posts } = this.props;
+    const itemsContainer = [];
+    const filteredPosts = currentUser
+      ? posts.filter(post => post.to._id === currentUser._id)
+      : null;
 
-    while (i < 3 && i < item.length) {
-      itemsContainer.push(item[item.length - 1 - i].body);
-      i++;
+    if (!currentUser) return;
+
+    for (let i = 1; i <= 3; i++) {
+      if (
+        filteredPosts[filteredPosts.length - i] !== undefined ||
+        filteredPosts[filteredPosts.length - i] !== null
+      ) {
+        itemsContainer.push(filteredPosts[filteredPosts.length - i]);
+      }
     }
 
     return itemsContainer;
@@ -95,14 +104,16 @@ class PostsContainer extends Component {
                 Your Recently Received Compliments
               </h2>
               <RecentList>
-                {this.getRecentCompliments(posts).map(item => {
-                  return (
-                    <RecentListItem
-                      key={Math.random()}
-                      recentitem={`${item}`}
-                    />
-                  );
-                })}
+                {this.getRecentCompliments() !== undefined
+                  ? this.getRecentCompliments().map(item => {
+                      return item !== undefined ? (
+                        <RecentListItem
+                          key={Math.random()}
+                          recentitem={`${item.body}`}
+                        />
+                      ) : null;
+                    })
+                  : null}
               </RecentList>
             </Paper>
           </div>
