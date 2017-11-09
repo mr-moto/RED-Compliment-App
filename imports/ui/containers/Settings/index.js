@@ -46,35 +46,35 @@ class SettingsContainer extends Component {
             const storageRef = firebaseStorage.ref(
                 currentUserId + "/" + file.name
             );
-            // storageRef.put(file).then(snapshot => {
-            //     this.setState({ imageUrl: snapshot.downloadURL });
-            //     console.log(snapshot)
-
-            //     const percentage =
-            //         snapshot.bytesTransferred / snapshot.totalBytes * 100;
-            //     this.setState({ uploadProgress: percentage });
-            // });
 
             const uploadTask = storageRef.put(file);
             uploadTask.on(
                 "state_changed",
                 (snapshot = () => {
                     var percent =
-                        uploadTask.snapshot.bytesTransferred / uploadTask.snapshot.totalBytes * 100;
+                        uploadTask.snapshot.bytesTransferred /
+                        uploadTask.snapshot.totalBytes *
+                        100;
                     this.setState({ uploadProgress: percent });
                 }),
-                function(error) {
-                    // Handle unsuccessful uploads
-                    // console.log(error)
-                },
+                (error = () => {
+                    console.log(error);
+                }),
                 (snapshot = () => {
-                    // console.log(snapshot)
-                    // Handle successful uploads on complete
+                    const imageUrl = uploadTask.snapshot.downloadURL
                     this.setState({
-                        imageUrl: uploadTask.snapshot.downloadURL,
+                        imageUrl: imageUrl,
                         uploadProgress: 0
                     });
-                    Meteor.users.update({_id: currentUserId}, {$set: {"profile.photo": uploadTask.snapshot.downloadURL}});
+                    Meteor.users.update(
+                        { _id: currentUserId },
+                        {
+                            $set: {
+                                "profile.photo": imageUrl
+                            }
+                        }
+                    );
+                    Meteor.call("posts.updateImage", currentUserId, imageUrl);
                 })
             );
         };
@@ -112,7 +112,7 @@ class SettingsContainer extends Component {
 }
 
 export default withTracker(() => {
-
+    Meteor.subscribe("posts");
     return {
         currentUser: Meteor.user(),
         currentUserId: Meteor.userId()
