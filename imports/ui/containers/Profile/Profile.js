@@ -7,7 +7,7 @@ import PostAvatar from "../../components/Posts/PostAvatar/";
 
 import './styles.css';
 
-const styles = {
+const styles = {    
   tab: {
     fontSize: 12,
     paddingTop: 12,
@@ -15,16 +15,15 @@ const styles = {
     fontWeight: 400,
   },
   name: {
-    fontSize: 14,
+    fontSize: 16,
     padding: 5
   },
   stats: {
     fontSize: 12,
-    padding: 5,
     lineHeight: 1.2
   },
-  subtitle: {
-    marginLeft: 40
+  card: {
+    padding: 10
   }
 };
 
@@ -39,25 +38,60 @@ export const Profile = ({currentUser, posts}) => {
         //All received posts from this user
         const receivedPosts = posts.filter(post => post.to._id === currentUser._id);
 
-        badgeColor = numberOfSends => { 
+        badgePicker = numberOfSends => { 
             if (numberOfSends < 5) {
-            return "red"; //Will update these colors to return specific background images
+            return "Badge1";
             } else if (numberOfSends < 10) {
-            return "blue";
+            return "Badge2";
             } else if (numberOfSends < 20) {
-            return "green";
+            return "Badge3";
             } else if (numberOfSends < 30) {
-            return "purple";
-            } else if (numberOfSends < 40) {
-            return "gold";
-            } else if (numberOfSends < 50) {
-            return "pink";
+            return "Badge4";
             } else {
-            return "maroon";
-            }
+            return "Badge5";
+<<<<<<< HEAD
+=======
         }
+    }
+
+        badgeUpgrade = numberOfSends => {
+            if (numberOfSends < 5) {
+            return 5 - numberOfSends; 
+            } else if (numberOfSends < 10) {
+            return 10 - numberOfSends;
+            } else if (numberOfSends < 20) {
+            return 20 - numberOfSends;
+            } else if (numberOfSends < 30) {
+            return 30 - numberOfSends;
+            } else {
+            return "";
+                }
+>>>>>>> bd64afd5f7f9bf48267acc88d2bfd0b8af67d248
+        }
+    }
+
+<<<<<<< HEAD
+=======
+        badgeUpgrade = numberOfSends => {
+>>>>>>> Restyled and display # of compliments needed to upgrade badge
+            if (numberOfSends < 5) {
+            return 5 - numberOfSends; 
+            } else if (numberOfSends < 10) {
+            return 10 - numberOfSends;
+            } else if (numberOfSends < 20) {
+            return 20 - numberOfSends;
+            } else if (numberOfSends < 30) {
+            return 30 - numberOfSends;
+            } else {
+            return "";
+                }
+        }
+<<<<<<< HEAD
+    }
+=======
 
         return (
+>>>>>>> Restyled and display # of compliments needed to upgrade badge
             <div> 
                 <div className="profile-card">
                     <Card>
@@ -65,33 +99,34 @@ export const Profile = ({currentUser, posts}) => {
                             <div className="card-left">
                                 <div className="profile-name">
                                     <CardTitle 
-                                        titleStyle={styles.name} 
-                                        title={`${currentUser.profile.firstName} ${currentUser.profile.lastName}`}
+                                        titleStyle={styles.name}
+                                        style={styles.card}
+                                        title={`Welcome ${currentUser.profile.firstName} ${currentUser.profile.lastName}!`}
                                     />
                                 </div>
                                 <div className="stats">
                                     <div className="compliments-given">
                                         <CardTitle 
                                             titleStyle={styles.stats} 
-                                            title="Compliments received: " 
-                                            subtitle={receivedPosts.length} 
-                                            subtitleStyle={styles.subtitle}
+                                            style={styles.card}
+                                            title={`You've received ${receivedPosts.length} and sent ${sentPosts.length} compliments.`}
                                         />
                                     </div>
                                     <div className="compliments-received">
                                         <CardTitle 
                                             titleStyle={styles.stats} 
-                                            title="Compliments given: " 
-                                            subtitle={sentPosts.length} 
-                                            subtitleStyle={styles.subtitle}
+                                            style={styles.card}
+                                            title={sentPosts.length < 30 ? 
+                                            `Send ${badgeUpgrade(sentPosts.length)} more compliment(s) to upgrade your profile badge!`
+                                            : `Great job, you're legitimately a good person!`}
                                         />
                                     </div>
                                 </div>
                             </div>
                             <div className="card-right">
-                                <div style={{backgroundColor: this.badgeColor(sentPosts.length)}} className="user-image-and-badge">
+                                <div style={{backgroundImage: `url(/images/${badgePicker(sentPosts.length)}.jpg)`, backgroundSize: 'cover' }} className="user-image-and-badge">
                                     <div className="user-image">
-                                        <PostAvatar avatarSize={80} src={currentUser.profile.photo} />
+                                        <PostAvatar avatarSize={75} src={currentUser.profile.photo} />
                                     </div>
                                     <div className="badge-overlay">
                                     </div>
