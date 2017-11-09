@@ -15,16 +15,15 @@ const styles = {
     fontWeight: 400,
   },
   name: {
-    fontSize: 14,
+    fontSize: 16,
     padding: 5
   },
   stats: {
     fontSize: 12,
-    padding: 5,
     lineHeight: 1.2
   },
-  subtitle: {
-    marginLeft: 40
+  card: {
+    padding: 10
   }
 };
 
@@ -41,7 +40,7 @@ export const Profile = ({currentUser, posts}) => {
 
         badgePicker = numberOfSends => { 
             if (numberOfSends < 5) {
-            return "Badge1"; //Will update these colors to return specific background images
+            return "Badge1";
             } else if (numberOfSends < 10) {
             return "Badge2";
             } else if (numberOfSends < 20) {
@@ -53,6 +52,20 @@ export const Profile = ({currentUser, posts}) => {
         }
     }
 
+        badgeUpgrade = numberOfSends => {
+            if (numberOfSends < 5) {
+            return 5 - numberOfSends; 
+            } else if (numberOfSends < 10) {
+            return 10 - numberOfSends;
+            } else if (numberOfSends < 20) {
+            return 20 - numberOfSends;
+            } else if (numberOfSends < 30) {
+            return 30 - numberOfSends;
+            } else {
+            return "";
+                }
+        }
+
         return (
             <div> 
                 <div className="profile-card">
@@ -61,25 +74,26 @@ export const Profile = ({currentUser, posts}) => {
                             <div className="card-left">
                                 <div className="profile-name">
                                     <CardTitle 
-                                        titleStyle={styles.name} 
-                                        title={`${currentUser.profile.firstName} ${currentUser.profile.lastName}`}
+                                        titleStyle={styles.name}
+                                        style={styles.card}
+                                        title={`Welcome ${currentUser.profile.firstName} ${currentUser.profile.lastName}!`}
                                     />
                                 </div>
                                 <div className="stats">
                                     <div className="compliments-given">
                                         <CardTitle 
                                             titleStyle={styles.stats} 
-                                            title="Compliments received: " 
-                                            subtitle={receivedPosts.length} 
-                                            subtitleStyle={styles.subtitle}
+                                            style={styles.card}
+                                            title={`You've received ${receivedPosts.length} and sent ${sentPosts.length} compliments.`}
                                         />
                                     </div>
                                     <div className="compliments-received">
                                         <CardTitle 
                                             titleStyle={styles.stats} 
-                                            title="Compliments given: " 
-                                            subtitle={sentPosts.length} 
-                                            subtitleStyle={styles.subtitle}
+                                            style={styles.card}
+                                            title={sentPosts.length < 30 ? 
+                                            `Send ${badgeUpgrade(sentPosts.length)} more compliment(s) to upgrade your profile badge!`
+                                            : `Great job, you're legitimately a good person!`}
                                         />
                                     </div>
                                 </div>
@@ -87,7 +101,7 @@ export const Profile = ({currentUser, posts}) => {
                             <div className="card-right">
                                 <div style={{backgroundImage: `url(/images/${badgePicker(sentPosts.length)}.jpg)`, backgroundSize: 'cover' }} className="user-image-and-badge">
                                     <div className="user-image">
-                                        <PostAvatar avatarSize={65} src={currentUser.profile.photo} />
+                                        <PostAvatar avatarSize={75} src={currentUser.profile.photo} />
                                     </div>
                                     <div className="badge-overlay">
                                     </div>
