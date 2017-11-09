@@ -40,7 +40,7 @@ export const Profile = ({currentUser, posts}) => {
 
         badgePicker = numberOfSends => { 
             if (numberOfSends < 5) {
-            return "Badge1"; //Will update these colors to return specific background images
+            return "Badge1";
             } else if (numberOfSends < 10) {
             return "Badge2";
             } else if (numberOfSends < 20) {
@@ -52,6 +52,10 @@ export const Profile = ({currentUser, posts}) => {
         }
     }
 
+<<<<<<< HEAD
+=======
+        badgeUpgrade = numberOfSends => {
+>>>>>>> Restyled and display # of compliments needed to upgrade badge
             if (numberOfSends < 5) {
             return 5 - numberOfSends; 
             } else if (numberOfSends < 10) {
@@ -64,7 +68,12 @@ export const Profile = ({currentUser, posts}) => {
             return "";
                 }
         }
+<<<<<<< HEAD
     }
+=======
+
+        return (
+>>>>>>> Restyled and display # of compliments needed to upgrade badge
             <div> 
                 <div className="profile-card">
                     <Card>
