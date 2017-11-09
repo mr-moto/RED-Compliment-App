@@ -65,6 +65,21 @@ export const Profile = ({currentUser, posts}) => {
             return "";
                 }
         }
+    
+
+        badgeUpgrade = numberOfSends => {
+            if (numberOfSends < 5) {
+            return 5 - numberOfSends; 
+            } else if (numberOfSends < 10) {
+            return 10 - numberOfSends;
+            } else if (numberOfSends < 20) {
+            return 20 - numberOfSends;
+            } else if (numberOfSends < 30) {
+            return 30 - numberOfSends;
+            } else {
+            return "";
+                }
+        }
 
         return (
             <div> 
