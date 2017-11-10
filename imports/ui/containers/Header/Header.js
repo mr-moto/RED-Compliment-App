@@ -19,10 +19,7 @@ class Header extends Component {
     return (
       <div>
         <AppBar
-<<<<<<< HEAD
-=======
           style={{ background: "#ed4242" }}
->>>>>>> updated header and changed color of app bar.
           title="Title"
           onLeftIconButtonTouchTap={this.handleMenuToggle}
         />
