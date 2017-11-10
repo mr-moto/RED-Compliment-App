@@ -1,6 +1,5 @@
 import { Meteor } from "meteor/meteor";
 import { Posts } from "../../api/posts/posts";
-import { Quotes } from "../../api/quotes/quotes";
 import { Suggestions } from "../../api/suggestions/suggestions";
 import { Badges } from "../../api/badges/badges";
 import { Accounts } from "meteor/accounts-base";
@@ -104,21 +103,6 @@ Meteor.startup(() => {
         });
         Suggestions.insert({
             suggestion: "I love your dog Betsy!"
-        });
-    }
-
-    if (Quotes.find().count() === 0) {
-        Quotes.insert({
-            quote: "shamwowowowowowowowo"
-        });
-        Quotes.insert({
-            quote: "yesyesyes"
-        });
-        Quotes.insert({
-            quote: "and and and"
-        });
-        Quotes.insert({
-            quote: "💩 💩 💩 💩"
         });
     }
 });

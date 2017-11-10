@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../../../api/posts/posts";
-import { Quotes } from "../../../api/quotes/quotes";
 import { Suggestions } from "../../../api/suggestions/suggestions";
 import { Badges } from "../../../api/badges/badges";
 import Paper from "material-ui/Paper";
