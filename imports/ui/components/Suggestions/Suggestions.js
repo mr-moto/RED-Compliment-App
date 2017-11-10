@@ -20,17 +20,15 @@ class SuggestionsContainer extends Component {
                             </div>
                             {suggestions ? (
                                 <h2 className="suggestions-cycle">
-                                    <TextLoop style={{ fontSize: "14px" }}>
+                                    <TextLoop style={{ fontSize: "14px" }} >
                                     <span>helloooo</span>
                                         {suggestions.map(suggestion => {
-                                            {console.log(suggestion)}
                                             return (
-                                                
                                                 <span key={suggestion._id}>
                                                     {suggestion.suggestion}
                                                 </span>
                                             );
-                                        })}
+                                        })} 
                                     </TextLoop>
                                 </h2>
                             ) : null}
