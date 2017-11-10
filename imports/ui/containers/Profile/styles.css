@@ -6,6 +6,11 @@
     color: white;
 }
 
+.profile-posts-list {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+}
+
 .user-image-and-badge {
     display: flex;
     justify-content: center;
