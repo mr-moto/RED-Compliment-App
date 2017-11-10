@@ -45,6 +45,11 @@ const PostItem = ({ post, content, to, from }) => {
   );
 };
 
-PostItem.propTypes = {};
+PostItem.propTypes = {
+  content: PropTypes.string,
+  from: PropTypes.object,
+  post: PropTypes.string,
+  to: PropTypes.object
+};
 
 export default PostItem;

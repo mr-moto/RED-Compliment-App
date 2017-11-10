@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import Layout from "../../layout";
@@ -29,20 +28,3 @@ class App extends Component {
 }
 
 export default App;
-
-// PROP TYPES HERE
-
-// App.propTypes = {
-//   posts: PropTypes.array.isRequired,
-//   currentUser: PropTypes.object
-// };
-
-// export default withTracker(() => {
-//   return {
-//     currentUser: Meteor.user(),
-//     posts: Posts.find({}).fetch(),
-//     quotes: Quotes.find({}).fetch(),
-//     badges: Badges.find({}).fetch(),
-//     suggestions: Suggestions.find({}).fetch()
-//   };
-// })(App);

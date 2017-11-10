@@ -68,6 +68,11 @@ class PostIcon extends Component {
     );
   }
 }
-PostIcon.propTypes = {};
+
+PostIcon.propTypes = {
+  collection: PropTypes.string,
+  iconName: PropTypes.string,
+  post: PropTypes.string
+};
 
 export default PostIcon;

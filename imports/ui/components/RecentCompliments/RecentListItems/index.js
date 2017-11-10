@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import "./styles";
 
 const RecentListItems = ({ recentitem }) => {
@@ -9,7 +8,5 @@ const RecentListItems = ({ recentitem }) => {
     </li>
   );
 };
-
-RecentListItems.propTypes = {};
 
 export default RecentListItems;
