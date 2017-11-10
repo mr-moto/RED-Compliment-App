@@ -5,9 +5,11 @@ import PostAvatar from "../PostAvatar/";
 import PostIconList from "../PostIconList/";
 import PostIcon from "../PostIcon/";
 import PostBody from "../PostBody/";
+import { Posts } from "../../../../api/posts/posts";
+import { withTracker } from "meteor/react-meteor-data";
 import "./styles";
 
-const PostItem = ({ post, content, to, from }) => {
+const PostItem = ({ postID, content, to, from, postObj }) => {
   return (
     <Paper className="post-item-container" zDepth={1} rounded={false}>
       <p className="posts-to">To. {to.profile.firstName}</p>
@@ -17,27 +19,33 @@ const PostItem = ({ post, content, to, from }) => {
           <div className="posts-social-icons-container">
             <PostIconList>
               <div className="icon-wrapper">
-                <span className="social-counter">7</span>
+                <span className="social-counter">
+                  {postObj.upvotes === undefined ? 0 : postObj.upvotes.length}
+                </span>
                 <PostIcon
-                  post={post}
+                  post={postID}
                   collection="upvotes"
                   iconName="fa fa-thumbs-o-up"
                 />
               </div>
               <div className="icon-wrapper">
-                <span className="social-counter">2</span>
+                <span className="social-counter">
+                  {postObj.sarcasm === undefined ? 0 : postObj.sarcasm.length}
+                </span>
                 <PostIcon
-                  post={post}
-                  collection="dislike"
-                  iconName="fa fa-thumbs-o-down"
+                  post={postID}
+                  collection="sarcasm"
+                  iconName="fa fa-hand-peace-o"
                 />
               </div>
               <div className="icon-wrapper">
-                <span className="social-counter">3</span>
+                <span className="social-counter">
+                  {postObj.dislike === undefined ? 0 : postObj.dislike.length}
+                </span>
                 <PostIcon
-                  post={post}
-                  collection="sarcasm"
-                  iconName="fa fa-hand-peace-o"
+                  post={postID}
+                  collection="dislike"
+                  iconName="fa fa-thumbs-o-down"
                 />
               </div>
             </PostIconList>
@@ -56,4 +64,10 @@ const PostItem = ({ post, content, to, from }) => {
 
 PostItem.propTypes = {};
 
-export default PostItem;
+export default withTracker(() => {
+  Meteor.subscribe("posts");
+
+  return {
+    posts: Posts.find({}).fetch()
+  };
+})(PostItem);
