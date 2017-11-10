@@ -1,7 +1,8 @@
 .posts-social-list-item {
   display: flex;
   flex-flow: row nowrap;
-  margin-left: 1rem;
+  margin-left: 2.5rem;
+  font-size: 1rem;
 }
 
 .posts-social-color-active {
