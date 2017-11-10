@@ -7,8 +7,6 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../../../api/posts/posts";
 import { Badges } from "../../../api/badges/badges";
 
-// import  Suggestions  from '../../components/Suggestions';
-
 class ProfileContainer extends Component {
 
   constructor() {
@@ -27,7 +25,10 @@ class ProfileContainer extends Component {
     }
 }
 
-ProfileContainer.propTypes = {};
+ProfileContainer.propTypes = {
+  currentUser: PropTypes.object,
+  posts: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default withTracker(() => {
   Meteor.subscribe("posts");
