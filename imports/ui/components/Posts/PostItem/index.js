@@ -16,21 +16,30 @@ const PostItem = ({ post, content, to, from }) => {
         <div className="posts-footer-left">
           <div className="posts-social-icons-container">
             <PostIconList>
-              <PostIcon
-                post={post}
-                collection="upvotes"
-                iconName="fa fa-thumbs-o-up"
-              />
-              <PostIcon
-                post={post}
-                collection="dislike"
-                iconName="fa fa-thumbs-o-down"
-              />
-              <PostIcon
-                post={post}
-                collection="sarcasm"
-                iconName="fa fa-hand-peace-o"
-              />
+              <div className="icon-wrapper">
+                <span className="social-counter">7</span>
+                <PostIcon
+                  post={post}
+                  collection="upvotes"
+                  iconName="fa fa-thumbs-o-up"
+                />
+              </div>
+              <div className="icon-wrapper">
+                <span className="social-counter">2</span>
+                <PostIcon
+                  post={post}
+                  collection="dislike"
+                  iconName="fa fa-thumbs-o-down"
+                />
+              </div>
+              <div className="icon-wrapper">
+                <span className="social-counter">3</span>
+                <PostIcon
+                  post={post}
+                  collection="sarcasm"
+                  iconName="fa fa-hand-peace-o"
+                />
+              </div>
             </PostIconList>
           </div>
         </div>
