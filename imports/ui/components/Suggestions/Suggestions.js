@@ -3,6 +3,8 @@ import { withTracker } from "meteor/react-meteor-data";
 import { Card } from "material-ui/Card";
 import TextLoop from "react-text-loop";
 import { Suggestions } from "../../../api/suggestions/suggestions";
+import PropTypes from "prop-types";
+
 import "./styles.css";
 
 class SuggestionsContainer extends Component {
@@ -46,3 +48,7 @@ export default withTracker(() => {
         suggestions: Suggestions.find({}, { _id: 0, suggestion: 1 }).fetch()
     };
 })(SuggestionsContainer);
+
+SuggestionsContainer.propTypes = {
+  suggestionsList: PropTypes.object
+};

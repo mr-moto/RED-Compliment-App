@@ -5,6 +5,8 @@ const RecentList = props => {
   return <ol className="recent-items-list">{props.children}</ol>;
 };
 
-RecentList.propTypes = {};
+  RecentList.propTypes = {
+    children: PropTypes.arrayOf(PropTypes.object)
+  };
 
 export default RecentList;

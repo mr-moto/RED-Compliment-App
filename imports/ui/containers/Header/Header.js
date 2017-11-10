@@ -2,13 +2,7 @@ import React, { Component } from "react";
 import { AppBar, IconButton, FontIcon, Drawer, MenuItem } from "material-ui";
 import { Link } from "react-router-dom";
 
-import PropTypes from "prop-types";
-
 import "./styles";
-
-function handleTouchTapMenu() {
-  console.log("burger lcickeddddd");
-}
 
 class Header extends Component {
   constructor(props) {
