@@ -88,7 +88,7 @@ class PostsContainer extends Component {
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
       <MenuItem key={2} value={2} primaryText="Most Popular" />,
-      <MenuItem key={3} value={3} primaryText="Trending" />
+      <MenuItem key={3} value={3} primaryText="Most Sarcasm" />
     ];
 
     const { users, posts, suggestions } = this.props;
