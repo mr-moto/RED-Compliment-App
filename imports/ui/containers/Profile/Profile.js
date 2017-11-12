@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Meteor } from "meteor/meteor";
 import { Card, CardTitle } from "material-ui/Card";
 import { Tabs, Tab } from "material-ui/Tabs";
