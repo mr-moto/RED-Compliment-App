@@ -19,7 +19,63 @@ class PostsContainer extends Component {
   state = {
     shareIsExpanded: false,
     toValue: "",
-    bodyValue: ""
+    bodyValue: "",
+    filterItems: ["Most Recent", "Most Popular", "Most Sarcasm"],
+    value: 1
+  };
+
+  filteredPosts = (posts, value) => {
+    switch (value) {
+      case 1: // most recent
+        return posts.map(post => (
+          <PostItem
+            key={post._id}
+            content={post.body}
+            to={post.to}
+            from={post.from}
+            postID={post._id}
+            postObj={post}
+          />
+        ));
+        break;
+
+      case 2: // sorted by upvotes
+        const upvoteArr = posts.sort((post1, post2) => {
+          return -(post2.upvotes.length - post1.upvotes.length);
+        });
+
+        return upvoteArr.map(post => (
+          <PostItem
+            key={post._id}
+            content={post.body}
+            to={post.to}
+            from={post.from}
+            postID={post._id}
+            postObj={post}
+          />
+        ));
+        break;
+
+      case 3: // sort by sarcasm
+        const sarcasmArr = posts.sort((post1, post2) => {
+          return -(post2.sarcasm.length - post1.sarcasm.length);
+        });
+
+        return sarcasmArr.map(post => (
+          <PostItem
+            key={post._id}
+            content={post.body}
+            to={post.to}
+            from={post.from}
+            postID={post._id}
+            postObj={post}
+          />
+        ));
+        break;
+
+      default:
+        break;
+    }
   };
 
   handleFilterChange = (event, index, value) => this.setState({ value });
@@ -85,14 +141,8 @@ class PostsContainer extends Component {
   };
 
   render() {
-    const items = [
-      <MenuItem key={1} value={1} primaryText="Most Recent" />,
-      <MenuItem key={2} value={2} primaryText="Most Popular" />,
-      <MenuItem key={3} value={3} primaryText="Most Sarcasm" />
-    ];
-
     const { users, posts, suggestions } = this.props;
-    const { shareIsExpanded, toValue, bodyValue } = this.state;
+    const { shareIsExpanded, toValue, bodyValue, value } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
       return (
@@ -120,27 +170,22 @@ class PostsContainer extends Component {
             <SelectField
               value={this.state.value}
               onChange={this.handleFilterChange}
-              floatingLabelText="Styled Floating Label Text"
+              floatingLabelText="Filter Compliments"
               floatingLabelStyle={{ color: "#ed4242" }}
               labelStyle={{ color: "white" }}
               selectedMenuItemStyle={{ color: "#ed4242" }}
             >
-              {items}
+              {this.state.filterItems.map((item, index) => (
+                <MenuItem
+                  key={index + 1}
+                  value={index + 1}
+                  primaryText={item}
+                />
+              ))}
             </SelectField>
           </div>
           <div className="posts-container">
-            {posts.map(post => {
-              return (
-                <PostItem
-                  key={post._id}
-                  content={post.body}
-                  to={post.to}
-                  from={post.from}
-                  postID={post._id}
-                  postObj={post}
-                />
-              );
-            })}
+            {this.filteredPosts(posts, this.state.value)}
           </div>
           <ShareForm
             shareIsExpanded={shareIsExpanded}
