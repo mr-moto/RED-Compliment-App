@@ -1,5 +1,9 @@
 .appHeader .menu {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.appbar {
+  background: #ed4242;
 }

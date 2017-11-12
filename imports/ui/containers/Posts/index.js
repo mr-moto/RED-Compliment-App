@@ -92,7 +92,7 @@ class PostsContainer extends Component {
       <MenuItem key={3} value={3} primaryText="Trending" />
     ];
 
-    const { users, posts, currentUser, suggestions } = this.props;
+    const { users, posts, suggestions } = this.props;
     const { shareIsExpanded, toValue, bodyValue } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
@@ -137,7 +137,8 @@ class PostsContainer extends Component {
                   content={post.body}
                   to={post.to}
                   from={post.from}
-                  post={post._id}
+                  postID={post._id}
+                  postObj={post}
                 />
               );
             })}
