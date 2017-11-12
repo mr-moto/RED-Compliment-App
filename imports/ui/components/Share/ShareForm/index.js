@@ -87,8 +87,9 @@ const ShareForm = ({
             <RaisedButton
               label="Submit"
               type="submit"
-              primary={true}
               style={{ margin: 12 }}
+              labelColor={"#fff"}
+              overlayStyle={{ background: "#ed4242" }}
             />
           </div>
           <Suggestions suggestionsList={suggestionsList} />

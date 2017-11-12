@@ -12,7 +12,17 @@ import "./styles";
 const PostItem = ({ postID, content, to, from, postObj }) => {
   return (
     <Paper className="post-item-container" zDepth={1} rounded={false}>
-      <p className="posts-to">To. {to.profile.firstName}</p>
+      <div className="posts-header">
+        <div className="posts-header-left">
+          <p className="posts-to">
+            To.<br /> {to.profile.firstName}
+          </p>
+          <PostAvatar avatarSize={50} src={to.profile.photo} />
+        </div>
+        <div className="posts-header-right">
+          <p>{postObj.dateCreated}</p>
+        </div>
+      </div>
       <PostBody content={content} />
       <div className="posts-footer">
         <div className="posts-footer-left">
