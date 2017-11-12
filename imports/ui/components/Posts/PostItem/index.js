@@ -72,7 +72,12 @@ const PostItem = ({ postID, content, to, from, postObj }) => {
   );
 };
 
-PostItem.propTypes = {};
+PostItem.propTypes = {
+  content: PropTypes.string,
+  from: PropTypes.object,
+  post: PropTypes.string,
+  to: PropTypes.object
+};
 
 export default withTracker(() => {
   Meteor.subscribe("posts");

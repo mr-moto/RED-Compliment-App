@@ -99,6 +99,8 @@ const ShareForm = ({
   );
 };
 
-ShareForm.propTypes = {};
+ShareForm.propTypes = {
+  suggestionsList: PropTypes.object
+};
 
 export default ShareForm;

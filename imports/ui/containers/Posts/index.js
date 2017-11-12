@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withTracker } from "meteor/react-meteor-data";
 import { Posts } from "../../../api/posts/posts";
-import { Quotes } from "../../../api/quotes/quotes";
 import { Suggestions } from "../../../api/suggestions/suggestions";
 import { Badges } from "../../../api/badges/badges";
 import Paper from "material-ui/Paper";
@@ -86,6 +85,7 @@ class PostsContainer extends Component {
   };
 
   render() {
+
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
       <MenuItem key={2} value={2} primaryText="Most Popular" />,
@@ -170,7 +170,12 @@ class PostsContainer extends Component {
   }
 }
 
-Posts.propTypes = {};
+Posts.propTypes = {
+  currentUser: PropTypes.object,
+  posts: PropTypes.arrayOf(PropTypes.object),
+  suggestions: PropTypes.arrayOf(PropTypes.object),
+  users: PropTypes.arrayOf(PropTypes.object)
+};
 
 export default withTracker(() => {
   Meteor.subscribe("posts");

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withTracker } from "meteor/react-meteor-data";
 import { CircularProgress } from "material-ui";
+import PropTypes from "prop-types";
 
 import { firebaseStorage } from "../../../api/firebase/firebase";
 import {
@@ -111,6 +112,11 @@ class SettingsContainer extends Component {
     }
 }
 
+SettingsContainer.propTypes = {
+  currentUser: PropTypes.object,
+  currentUserId: PropTypes.string
+};
+
 export default withTracker(() => {
     Meteor.subscribe("posts");
     return {
@@ -118,3 +124,4 @@ export default withTracker(() => {
         currentUserId: Meteor.userId()
     };
 })(SettingsContainer);
+

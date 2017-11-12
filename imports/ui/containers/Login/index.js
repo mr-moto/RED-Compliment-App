@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { withTracker } from "meteor/react-meteor-data";
 import { Redirect, Router } from "react-router-dom";
 import TextLoop from "react-text-loop";
-import { Quotes } from "../../../api/quotes/quotes";
 
 import { SignIn } from "../../components/SignIn";
 
@@ -17,33 +16,38 @@ const login = e => {
 class LoginContainer extends Component {
     state = {};
     render() {
-        const { currentUserId, quotes } = this.props;
-        console.log(quotes);
+        const { currentUserId } = this.props;
         if (currentUserId) {
             return <Redirect to="/" />;
         } else {
             return (
                 <div className="loginContainer">
                     <SignIn
+                        className="signIn"
                         submit={login}
                         label1={"Register"}
                         label2={"Sign In"}
                         link={"/register"}
                         register={false}
                     />
-                    {quotes ? (<div className="quotesContainer">
+                    <div className="quotesContainer">
                         <h2>
                             <TextLoop>
-                                <span> hello </span>
-                                {quotes.map(quote => {
-                                    return (
-                                        <span key={quote._id}>{quote.quote}</span>
-                                    )
-                                })}
-                            </TextLoop> and something else.
+                                <div>
+                                    <p>asdfhaslkdfha adf asdfa</p>
+                                    <p>hellooo new line</p>
+                                </div>
+                                <div>
+                                    <p>asdf asd fasdfsdf</p>
+                                    <p> asf s d poop</p>
+                                </div>
+                                <div>
+                                    <p>asd f asdf asfd </p>
+                                    <p>💩💩💩💩💩💩 💩💩 💩💩</p>
+                                </div>
+                            </TextLoop>
                         </h2>
-                    </div>) : (null)}
-                    
+                    </div>
                 </div>
             );
         }
@@ -51,9 +55,7 @@ class LoginContainer extends Component {
 }
 
 export default withTracker(() => {
-    Meteor.subscribe("quotes");
     return {
         currentUserId: Meteor.userId(),
-        quotes: Quotes.find({}, {_id: 0, quote: 1}).fetch()
     };
 })(LoginContainer);
