@@ -85,7 +85,6 @@ class PostsContainer extends Component {
   };
 
   render() {
-
     const items = [
       <MenuItem key={1} value={1} primaryText="Most Recent" />,
       <MenuItem key={2} value={2} primaryText="Most Popular" />,
