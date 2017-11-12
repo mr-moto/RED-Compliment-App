@@ -93,53 +93,6 @@ export const Profile = ({ currentUser, posts }) => {
                       .firstName} ${currentUser.profile.lastName}!`}
                   />
                 </div>
-<<<<<<< HEAD
-
-                <div className="profile-compliments">
-                    <div className="tab-container">
-                        <Tabs 
-                            tabItemContainerStyle={{backgroundColor: 'darkgray'}} 
-                            inkBarStyle={{background: 'red'}}
-                        >
-                            <Tab 
-                                style={styles.tab} 
-                                label={`Compliments Received (${receivedPosts.length})`}
-                                style={{margin: '0px', padding: '0px', fontSize: '12px'}}
-                            >
-                                <div className="profile-posts-list">
-                                    {receivedPosts.map(post => {
-                                        return (
-                                            <PostItem
-                                            key={post._id}
-                                            content={post.body}
-                                            to={post.to}
-                                            from={post.from}
-                                            />
-                                        );
-                                    })}                                
-                                </div>
-                            </Tab>
-                            <Tab 
-                                style={styles.tab} 
-                                label={`Compliments Sent (${sentPosts.length})`} 
-                                style={{margin: '0px', padding: '0px', fontSize: '12px'}}
-                            >
-                                <div>
-                                    {sentPosts.map(post => {
-                                        return (
-                                            <PostItem
-                                            key={post._id}
-                                            content={post.body}
-                                            to={post.to}
-                                            from={post.from}
-                                            />
-                                        );
-                                    })}   
-                                </div>
-                            </Tab>
-                        </Tabs>
-                    </div>
-=======
                 <div className="stats">
                   <div className="compliments-given">
                     <CardTitle
@@ -180,21 +133,9 @@ export const Profile = ({ currentUser, posts }) => {
                     />
                   </div>
                   <div className="badge-overlay" />
->>>>>>> fixed social icons bug, and implemented counter.
                 </div>
               </div>
             </div>
-<<<<<<< HEAD
-        )
-    }
-    return <div> Is Loading... </div>;
-} 
-
-Profile.propTypes = {
-  currentUser: PropTypes.object,
-  posts: PropTypes.arrayOf(PropTypes.object),
-};
-=======
           </Card>
         </div>
 
@@ -252,4 +193,8 @@ Profile.propTypes = {
   }
   return <div> Is Loading... </div>;
 };
->>>>>>> fixed social icons bug, and implemented counter.
+
+Profile.propTypes = {
+  currentUser: PropTypes.object,
+  posts: PropTypes.arrayOf(PropTypes.object)
+};

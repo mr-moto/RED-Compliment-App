@@ -1,16 +1,22 @@
+.posts-from,
 .posts-to {
-  align-self: flex-start;
-}
-.posts-from {
   margin-right: 0.5rem;
   line-height: 1.5rem;
+}
+
+.posts-header {
+  align-items: center;
+  justify-content: space-between;
 }
 
 .posts-social-icons-container,
 .posts-footer,
 .posts-footer-left,
 .posts-footer-right,
-.post-item-container {
+.post-item-container,
+.posts-header,
+.posts-header-left,
+.posts-header-right {
   display: flex;
 }
 
@@ -35,7 +41,11 @@
   flex-flow: column nowrap;
   margin: 2px 0;
   font-size: 0.75rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
+}
+
+.posts-social-icons-container {
+  width: 100%;
 }
 
 .posts-social-icons-container {
