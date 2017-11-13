@@ -9,7 +9,7 @@ import { Posts } from "../../../../api/posts/posts";
 import { withTracker } from "meteor/react-meteor-data";
 import "./styles";
 
-const PostItem = ({ postID, content, to, from, postObj }) => {
+const PostItem = ({ postID, content, to, from, postObj, anon }) => {
   return (
     <Paper className="post-item-container" zDepth={1} rounded={false}>
       <div className="posts-header">
@@ -63,9 +63,9 @@ const PostItem = ({ postID, content, to, from, postObj }) => {
         </div>
         <div className="posts-footer-right">
           <p className="posts-from">
-            From,<br /> {from.profile.firstName}
+            From,<br /> {anon ? 'Anonymous' : from.profile.firstName}
           </p>
-          <PostAvatar avatarSize={50} src={from.profile.photo} />
+          <PostAvatar avatarSize={50} src={anon ? "" : from.profile.photo} />
         </div>
       </div>
     </Paper>

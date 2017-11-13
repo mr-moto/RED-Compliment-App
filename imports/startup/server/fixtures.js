@@ -53,6 +53,7 @@ Meteor.startup(() => {
       body: "This is a beautiful world...",
       upvotes: [],
       sarcasm: [],
+      anon: false,
       dateCreated: formattedDate
     });
     Posts.insert({
@@ -61,6 +62,7 @@ Meteor.startup(() => {
       body: "Nice haircut!",
       upvotes: [],
       sarcasm: [],
+      anon: true,
       dateCreated: formattedDate
     });
     Posts.insert({
@@ -69,6 +71,7 @@ Meteor.startup(() => {
       body: "Nice face!!",
       upvotes: [],
       sarcasm: [],
+      anon: true,
       dateCreated: formattedDate
     });
     Posts.insert({
@@ -77,6 +80,7 @@ Meteor.startup(() => {
       body: "That shirt of yours is so cool!",
       upvotes: [],
       sarcasm: [],
+      anon: false,
       dateCreated: formattedDate
     });
     Posts.insert({
@@ -85,6 +89,7 @@ Meteor.startup(() => {
       body: "Always like talking to you!",
       upvotes: [],
       sarcasm: [],
+      anon: false,
       dateCreated: formattedDate
     });
     Posts.insert({
@@ -93,6 +98,7 @@ Meteor.startup(() => {
       body: "Always a pleasure chillin",
       upvotes: [],
       sarcasm: [],
+      anon: false,
       dateCreated: formattedDate
     });
     Posts.insert({
@@ -101,6 +107,7 @@ Meteor.startup(() => {
       body: "How are you so good at beer pong?!",
       upvotes: [],
       sarcasm: [],
+      anon: true,
       dateCreated: formattedDate
     });
   }
