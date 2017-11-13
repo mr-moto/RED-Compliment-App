@@ -161,6 +161,7 @@ export const Profile = ({ currentUser, posts }) => {
                         from={post.from}
                         postID={post._id}
                         postObj={post}
+                        anon={post.anon}
                       />
                     );
                   })}
