@@ -1,14 +1,5 @@
 import React, { Component } from "react";
-import {
-  AppBar,
-  IconButton,
-  FontIcon,
-  Drawer,
-  MenuItem,
-  FlatButton,
-  SvgIcon,
-  Menu
-} from "material-ui";
+import { AppBar, IconButton, FontIcon, Drawer, MenuItem, Divider, FlatButton, SvgIcon, Menu } from "material-ui";
 import { Link } from "react-router-dom";
 
 import "./styles";

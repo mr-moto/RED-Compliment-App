@@ -19,3 +19,10 @@
 .drawer div:last-child div:last-child .menu-item {
   border-bottom: none !important;
 }
+
+.sideMenuItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
