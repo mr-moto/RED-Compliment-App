@@ -13,7 +13,6 @@ import PrivateRoute from '../../ui/components/PrivateRoute';
 const Routes = () => (
   <Switch>
     <Route exact path="/login" component={LoginContainer} />
-    <Route exact path="/register" component={RegisterContainer} />
     <PrivateRoute exact path="/" component={PostsContainer} />
     <PrivateRoute exact path="/profile" component={ProfileContainer} />
     <PrivateRoute exact path="/profile/settings" component={SettingsContainer} />

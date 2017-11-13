@@ -10,7 +10,8 @@ const style = {
   display: "inline-block"
 };
 
-const SignIn = ({ submit, label1, label2, link, register }) => {
+const SignIn = ({ submit, label1, label2, button, register }) => {
+  console.log(register)
   return (
     <Paper
       style={style}
@@ -27,7 +28,7 @@ const SignIn = ({ submit, label1, label2, link, register }) => {
             <TextField type="email" hintText="Email" name="email" />
             <TextField type="password" hintText="password" name="password" />
             <div className="loginButtons">
-              <RaisedButton label={label1} className="button" href={link} />
+              <RaisedButton label={label1} className="button" onClick={button} />
               <RaisedButton
                 label={label2}
                 primary={true}
