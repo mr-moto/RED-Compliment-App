@@ -24,7 +24,7 @@ Meteor.methods({
       { $addToSet: { [collection]: `${Meteor.user()._id}` } }
     );
   },
-  "posts.addCompliment"(to, body, from, users, anon) {
+  "posts.addCompliment"(to, body, from, anon, users) {
     const dateArr = [];
     const tzOffset = new Date().getTimezoneOffset() * 60000; // offset in milliseconds
     const localTime = `${new Date(Date.now() - tzOffset)
