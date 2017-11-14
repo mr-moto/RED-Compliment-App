@@ -45,7 +45,7 @@ $ meteor
 First download and install XCode from the Apple App Store. Then:
 
 ```sh
-$ react-native run-ios
+$ meteor run-ios
 ```
 
 ### To run on Android
@@ -53,7 +53,7 @@ $ react-native run-ios
 First download and install Android Studio. Then:
 
 ```sh
-$ react-native run-android
+$ meteor run-android
 ```
 
 ## Todos/Next Steps
