@@ -53,6 +53,10 @@
   align-items: center;
 }
 
+.suggestions {
+  margin: 0;
+}
+
 .icon-wrapper:first-child {
   margin-left: 1rem;
   display: flex;
