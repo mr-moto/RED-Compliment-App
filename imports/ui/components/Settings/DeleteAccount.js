@@ -14,7 +14,7 @@ const DeleteAccount = () => {
         <Paper
             style={style}
             zDepth={1}
-            children={<RaisedButton label="Delete Account" />}
+            children={<RaisedButton label="Delete Account" disabled={true} />}
         />
     );
 };

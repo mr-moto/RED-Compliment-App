@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Meteor } from "meteor/meteor";
-import { Card, CardTitle } from "material-ui/Card";
-import { Tabs, Tab } from "material-ui/Tabs";
+import { Card, CardTitle, Tabs, Tab, CircularProgress } from "material-ui";
+
 import PostItem from "../../components/Posts/PostItem/";
 import PostAvatar from "../../components/Posts/PostAvatar/";
 
@@ -191,7 +191,9 @@ export const Profile = ({ currentUser, posts }) => {
       </div>
     );
   }
-  return <div> Is Loading... </div>;
+  return <div className="loader">
+                <CircularProgress />
+            </div>;
 };
 
 Profile.propTypes = {

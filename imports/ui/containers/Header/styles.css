@@ -8,14 +8,13 @@
   background: #ed4242;
 }
 
-.menu-item {
-  border-bottom: 1px solid #ed4242 !important;
-}
-
 .arrow {
   margin-right: 0.5rem;
 }
 
-.drawer div:last-child div:last-child .menu-item {
-  border-bottom: none !important;
+.sideMenuItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
 }

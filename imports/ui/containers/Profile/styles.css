@@ -39,3 +39,9 @@
     justify-content: space-around;
     padding-bottom: 15px;
 }
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
