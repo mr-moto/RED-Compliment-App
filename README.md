@@ -45,7 +45,7 @@ $ meteor
 First download and install XCode from the Apple App Store. Then:
 
 ```sh
-$ meteor run-ios
+$ meteor run ios
 ```
 
 ### To run on Android
@@ -53,7 +53,7 @@ $ meteor run-ios
 First download and install Android Studio. Then:
 
 ```sh
-$ meteor run-android
+$ meteor run android
 ```
 
 ## Todos/Next Steps
