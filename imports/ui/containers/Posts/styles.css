@@ -7,10 +7,6 @@
   flex-flow: column nowrap;
 }
 
-.recent-container {
-  margin-top: 1rem;
-}
-
 .posts-container,
 .post-wrapper,
 .filter-container,

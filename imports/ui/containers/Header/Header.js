@@ -53,6 +53,7 @@ class Header extends Component {
           onRequestChange={open => this.setState({ open })}
           openSecondary={true}
           className="drawer"
+          containerStyle={{ background: "rgba(53, 53, 53, 0.9" }}
         >
           <MenuItem className="menu-item" onClick={this.handleClose}>
             <Link to="/" className="menu">

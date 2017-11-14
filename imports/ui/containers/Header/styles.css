@@ -1,5 +1,5 @@
 .appHeader .menu {
-  color: #000;
+  color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
@@ -9,7 +9,7 @@
 }
 
 .menu-item {
-  border-bottom: 2px solid #ed4242 !important;
+  border-bottom: 1px solid #ed4242 !important;
 }
 
 .arrow {
