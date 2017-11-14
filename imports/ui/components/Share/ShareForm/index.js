@@ -6,6 +6,24 @@ import Suggestions from "../../../components/Suggestions";
 
 import "./styles";
 
+const toggleStyle = {
+  thumbOff: {
+    backgroundColor: "#ffcccc"
+  },
+  trackOff: {
+    backgroundColor: "#fff"
+  },
+  thumbSwitched: {
+    backgroundColor: "#ed4242"
+  },
+  trackSwitched: {
+    backgroundColor: "#fff"
+  },
+  labelStyle: {
+    color: "red"
+  }
+};
+
 const ShareForm = ({
   shareIsExpanded,
   showShareForm,
@@ -96,6 +114,10 @@ const ShareForm = ({
               }}
               onToggle={toggle}
               style={{ padding: "1rem" }}
+              thumbStyle={toggleStyle.thumbOff}
+              trackStyle={toggleStyle.trackOff}
+              thumbSwitchedStyle={toggleStyle.thumbSwitched}
+              trackSwitchedStyle={toggleStyle.trackSwitched}
             />
             <RaisedButton
               label="Submit"
