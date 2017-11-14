@@ -7,32 +7,70 @@ import { SignIn } from "../../components/SignIn";
 
 import "./styles.css";
 
-const login = e => {
-    e.preventDefault();
-    let email = e.target.email.value;
-    let password = e.target.password.value;
-    Meteor.loginWithPassword(email, password);
-};
 class LoginContainer extends Component {
-    state = {};
+    state = { register: false };
     render() {
+        login = e => {
+            e.preventDefault();
+            let email = e.target.email.value;
+            let password = e.target.password.value;
+            Meteor.loginWithPassword(email, password);
+        };
+
+        register = e => {
+            e.preventDefault();
+            let email = e.target.email.value;
+            let password = e.target.password.value;
+            let firstName = e.target.firstName.value;
+            let lastName = e.target.lastName.value;
+            Accounts.createUser({
+                email: email,
+                password: password,
+                profile: {
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    photo: null
+                }
+            });
+        };
+
+        registerNew = e => {
+            this.setState({ register: true });
+        };
+        signIn = e => {
+            this.setState({ register: false });
+        };
+
         const { currentUserId } = this.props;
         if (currentUserId) {
             return <Redirect to="/" />;
         } else {
             return (
                 <div className="loginContainer">
+
                     <div className="login-logo">
                         <img src="/images/logo_kindred.1.svg" />
                     </div>
-                    <SignIn
-                        className="signIn"
-                        submit={login}
-                        label1={"Register"}
-                        label2={"Sign In"}
-                        link={"/register"}
-                        register={false}
-                    />
+                    {this.state.register === true ? (
+                        <SignIn
+                            className="signIn"
+                            submit={register}
+                            button={signIn}
+                            label1={"Back"}
+                            label2={"Register"}
+                            register={this.state.register}
+                        />
+                    ) : (
+                        <SignIn
+                            className="signIn"
+                            submit={login}
+                            button={registerNew}
+                            label1={"Register"}
+                            label2={"Sign In"}
+                            register={this.state.register}
+                        />
+                    )}
                     <div className="quotesContainer">
                         <h2>
                             <TextLoop>
@@ -63,6 +101,6 @@ class LoginContainer extends Component {
 
 export default withTracker(() => {
     return {
-        currentUserId: Meteor.userId(),
+        currentUserId: Meteor.userId()
     };
 })(LoginContainer);

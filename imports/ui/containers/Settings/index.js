@@ -75,7 +75,7 @@ class SettingsContainer extends Component {
                             }
                         }
                     );
-                    Meteor.call("posts.updateImage", currentUserId, imageUrl);
+                    Meteor.call("posts.updatePostsImage", currentUserId, imageUrl);
                 })
             );
         };
