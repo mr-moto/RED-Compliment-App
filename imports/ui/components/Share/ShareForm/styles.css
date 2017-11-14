@@ -50,11 +50,34 @@
   color: white;
   font-size: 2rem;
   position: absolute;
-  top: 0;
+  top: 0px;
+  text-shadow: 1px 2px 1px black;
+}
+
+.button-bounce {
+  animation: share-bounce 1.25s linear infinite;
 }
 
 .hide {
   display: none;
+}
+
+@keyframes share-bounce {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 3px;
+  }
+  50% {
+    top: 0;
+  }
+  75% {
+    top: -3px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 @keyframes share-expand {

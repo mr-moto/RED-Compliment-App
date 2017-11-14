@@ -35,7 +35,13 @@ const ShareForm = ({
             showShareForm();
           }}
         >
-          <span className="share-button">+</span>
+          <span
+            className={`share-button ${true
+              ? "button-bounce"
+              : "button-bounce"}`}
+          >
+            +
+          </span>
         </Paper>
         <form
           onSubmit={addCompliment}
