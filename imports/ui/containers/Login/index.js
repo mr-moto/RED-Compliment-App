@@ -22,6 +22,9 @@ class LoginContainer extends Component {
         } else {
             return (
                 <div className="loginContainer">
+                    <div className="login-logo">
+                        <img src="/images/logo_kindred.1.svg" />
+                    </div>
                     <SignIn
                         className="signIn"
                         submit={login}
@@ -33,17 +36,21 @@ class LoginContainer extends Component {
                     <div className="quotesContainer">
                         <h2>
                             <TextLoop>
-                                <div>
-                                    <p>asdfhaslkdfha adf asdfa</p>
-                                    <p>hellooo new line</p>
+                                <div className="quotes-text">
+                                    <p>"No act of kindness, no matter how small,</p>
+                                    <p>is ever wasted."</p>
                                 </div>
-                                <div>
-                                    <p>asdf asd fasdfsdf</p>
-                                    <p> asf s d poop</p>
+                                <div className="quotes-text">
+                                    <p>"Treat everyone with respect and kindness. </p>
+                                    <p>Period. No exceptions."</p>
                                 </div>
-                                <div>
-                                    <p>asd f asdf asfd </p>
-                                    <p>💩💩💩💩💩💩 💩💩 💩💩</p>
+                                <div className="quotes-text">
+                                    <p>"Kindness is always fashionable, and  </p>
+                                    <p>always welcome."</p>
+                                </div>
+                                <div className="quotes-text">
+                                    <p>"What wisdom can you find that is </p>
+                                    <p>greater than kindness?"</p>
                                 </div>
                             </TextLoop>
                         </h2>

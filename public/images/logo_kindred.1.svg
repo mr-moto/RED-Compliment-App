@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="979px" height="538px" viewBox="0 0 979 538" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>iPad Copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="iPad-Copy">
+            <path d="M79.5,79.5 L79.5,415.067763 L803.74062,415.067763 L884.5,472.521419 L884.5,79.5 L79.5,79.5 Z" id="Rectangle" stroke="#ED4242" stroke-width="17"></path>
+            <g id="Group" transform="translate(188.000000, 145.000000)">
+                <path d="M19.5,173.5 L316.5,173.5" id="Line" stroke="#ED4242" stroke-width="17" stroke-linecap="square"></path>
+                <text id="kindred" font-family="Roboto-Medium, Roboto" font-size="144" font-weight="400" letter-spacing="15" fill="#ED4242">
+                    <tspan x="0.92578125" y="134">kindred</tspan>
+                </text>
+            </g>
+            <circle id="Oval" fill="#ED4242" cx="539.5" cy="323.5" r="8.5"></circle>
+            <circle id="Oval" fill="#ED4242" cx="580.5" cy="323.5" r="8.5"></circle>
+            <circle id="Oval" fill="#ED4242" cx="620.5" cy="323.5" r="8.5"></circle>
+            <circle id="Oval" fill="#ED4242" cx="661.5" cy="323.5" r="8.5"></circle>
+            <circle id="Oval" fill="#ED4242" cx="701.5" cy="323.5" r="8.5"></circle>
+            <circle id="Oval" fill="#ED4242" cx="742.5" cy="323.5" r="8.5"></circle>
+        </g>
+    </g>
+</svg>
