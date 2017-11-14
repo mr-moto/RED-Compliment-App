@@ -149,7 +149,7 @@ export const Profile = ({ currentUser, posts }) => {
                 label={`Compliments Received (${receivedPosts.length})`}
                 style={{ margin: "0px", padding: "0px", fontSize: "12px" }}
               >
-                <div>
+                <div className="profile-posts-list">
                   {receivedPosts.map(post => {
                     return (
                       <PostItem
@@ -170,7 +170,7 @@ export const Profile = ({ currentUser, posts }) => {
                 label={`Compliments Sent (${sentPosts.length})`}
                 style={{ margin: "0px", padding: "0px", fontSize: "12px" }}
               >
-                <div>
+                <div className="profile-posts-list">
                   {sentPosts.map(post => {
                     return (
                       <PostItem
