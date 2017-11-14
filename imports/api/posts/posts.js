@@ -64,7 +64,8 @@ Meteor.methods({
         anon,
         upvotes: [],
         sarcasm: [],
-        dateCreated: formattedDate
+        dateCreated: formattedDate,
+        sortDate: Date.now()
       });
 
       return true;

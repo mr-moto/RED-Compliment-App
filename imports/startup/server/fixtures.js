@@ -54,7 +54,8 @@ Meteor.startup(() => {
       upvotes: [],
       sarcasm: [],
       anon: false,
-      dateCreated: formattedDate
+      dateCreated: formattedDate,
+      sortDate: Date.now()
     });
     Posts.insert({
       to: Meteor.users.findOne({}, { skip: 1 }),
@@ -63,7 +64,8 @@ Meteor.startup(() => {
       upvotes: [],
       sarcasm: [],
       anon: true,
-      dateCreated: formattedDate
+      dateCreated: formattedDate,
+      sortDate: Date.now()
     });
     Posts.insert({
       to: Meteor.users.findOne(),
@@ -72,7 +74,8 @@ Meteor.startup(() => {
       upvotes: [],
       sarcasm: [],
       anon: true,
-      dateCreated: formattedDate
+      dateCreated: formattedDate,
+      sortDate: Date.now()
     });
     Posts.insert({
       to: Meteor.users.findOne({}, { skip: 1 }),
@@ -81,7 +84,8 @@ Meteor.startup(() => {
       upvotes: [],
       sarcasm: [],
       anon: false,
-      dateCreated: formattedDate
+      dateCreated: formattedDate,
+      sortDate: Date.now()
     });
     Posts.insert({
       to: Meteor.users.findOne(),
@@ -90,7 +94,8 @@ Meteor.startup(() => {
       upvotes: [],
       sarcasm: [],
       anon: false,
-      dateCreated: formattedDate
+      dateCreated: formattedDate,
+      sortDate: Date.now()
     });
     Posts.insert({
       to: Meteor.users.findOne({}, { skip: 1 }),
@@ -99,7 +104,8 @@ Meteor.startup(() => {
       upvotes: [],
       sarcasm: [],
       anon: false,
-      dateCreated: formattedDate
+      dateCreated: formattedDate,
+      sortDate: Date.now()
     });
     Posts.insert({
       to: Meteor.users.findOne(),
@@ -108,7 +114,8 @@ Meteor.startup(() => {
       upvotes: [],
       sarcasm: [],
       anon: true,
-      dateCreated: formattedDate
+      dateCreated: formattedDate,
+      sortDate: Date.now()
     });
   }
 
