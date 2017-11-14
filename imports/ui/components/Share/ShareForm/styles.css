@@ -26,13 +26,11 @@
 }
 
 .share-clicked {
-  animation: share-expand 0.2s ease-in-out;
   height: 75vh;
 }
 
 .share-collapsed {
   height: 10vh;
-  animation: share-collapsed 0.2s ease-in-out;
 }
 
 .share-bar {
@@ -44,6 +42,7 @@
   background: #3c3737;
   border-top: #ed4242 5px solid;
   position: relative;
+  animation: share-expand 0.2s ease-in-out;
 }
 
 .share-button {
