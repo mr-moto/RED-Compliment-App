@@ -1,5 +1,13 @@
 import React, { Component } from "react";
-import { AppBar, IconButton, FontIcon, Drawer, MenuItem } from "material-ui";
+import {
+  AppBar,
+  IconButton,
+  FontIcon,
+  Drawer,
+  MenuItem,
+  FlatButton,
+  SvgIcon
+} from "material-ui";
 import { Link } from "react-router-dom";
 
 import "./styles";
@@ -17,34 +25,49 @@ class Header extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="appbar-wrapper">
         <AppBar
           style={{ background: "#ed4242" }}
-          title="Title"
-          onLeftIconButtonTouchTap={this.handleMenuToggle}
+          onRightIconButtonTouchTap={this.handleMenuToggle}
+          iconElementLeft={
+            <Link to="/">
+              <img
+                className="logo"
+                src="/images/logo_kindred.svg"
+                alt="Kindred"
+                style={{ height: "8vh" }}
+              />
+            </Link>
+          }
+          iconElementRight={
+            <IconButton>
+              <i className="material-icons">menu</i>
+            </IconButton>
+          }
         />
         <Drawer
           docked={false}
           width={200}
           open={this.state.open}
           onRequestChange={open => this.setState({ open })}
+          openSecondary={true}
         >
-          <MenuItem onClick={this.handleClose}>
+          <MenuItem className="menu-item" onClick={this.handleClose}>
             <Link to="/" className="menu">
               Home
             </Link>
           </MenuItem>
-          <MenuItem onClick={this.handleClose}>
+          <MenuItem className="menu-item" onClick={this.handleClose}>
             <Link to="/profile" className="menu">
               Profile
             </Link>
           </MenuItem>
-          <MenuItem onClick={this.handleClose}>
+          <MenuItem className="menu-item" onClick={this.handleClose}>
             <Link to="/profile/settings" className="menu">
               Settings
             </Link>
           </MenuItem>
-          <MenuItem onClick={this.logOut}>
+          <MenuItem className="menu-item" onClick={this.logOut}>
             <Link to="/login" className="menu">
               Logout
             </Link>
