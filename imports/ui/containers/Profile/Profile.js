@@ -30,8 +30,6 @@ const styles = {
 
 export const Profile = ({ currentUser, posts }) => {
   if (currentUser) {
-    console.log(currentUser);
-
     //All sent posts from this user
     const sentPosts = posts.filter(post => post.from._id === currentUser._id);
 
