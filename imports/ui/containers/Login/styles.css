@@ -8,7 +8,7 @@
 .quotesContainer {
     color: #fff;
     position: absolute;
-    margin-bottom: 50px;
+    margin-bottom: 5vh;
     bottom: 0;
     padding: 0 1rem 2rem;
     text-align: center;
@@ -19,6 +19,6 @@
 }
 
 .login-logo img {
-    height: 200px;
+    height: 20vh;
 }
 

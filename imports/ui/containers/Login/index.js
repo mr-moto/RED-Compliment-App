@@ -37,20 +37,20 @@ class LoginContainer extends Component {
                         <h2>
                             <TextLoop>
                                 <div className="quotes-text">
-                                    <p>"No act of kindness, no matter how small,</p>
-                                    <p>is ever wasted."</p>
+                                    <p>"No act of kindness, no matter </p>
+                                    <p>how small, is ever wasted."</p>
                                 </div>
                                 <div className="quotes-text">
-                                    <p>"Treat everyone with respect and kindness. </p>
-                                    <p>Period. No exceptions."</p>
+                                    <p>"Treat everyone with respect and </p>
+                                    <p>kindness. Period. No exceptions."</p>
                                 </div>
                                 <div className="quotes-text">
-                                    <p>"Kindness is always fashionable, and  </p>
-                                    <p>always welcome."</p>
+                                    <p>"Kindness is always fashionable,</p>
+                                    <p>and always welcome."</p>
                                 </div>
                                 <div className="quotes-text">
-                                    <p>"What wisdom can you find that is </p>
-                                    <p>greater than kindness?"</p>
+                                    <p>"What wisdom can you find that</p>
+                                    <p>is greater than kindness?"</p>
                                 </div>
                             </TextLoop>
                         </h2>
