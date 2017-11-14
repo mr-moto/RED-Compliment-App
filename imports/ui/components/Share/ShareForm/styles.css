@@ -4,7 +4,7 @@
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 9;
   opacity: 0.9;
   background: #3c3737;
   display: flex;
