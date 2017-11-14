@@ -6,7 +6,8 @@ import {
   Drawer,
   MenuItem,
   FlatButton,
-  SvgIcon
+  SvgIcon,
+  Menu
 } from "material-ui";
 import { Link } from "react-router-dom";
 
@@ -51,25 +52,26 @@ class Header extends Component {
           open={this.state.open}
           onRequestChange={open => this.setState({ open })}
           openSecondary={true}
+          className="drawer"
         >
           <MenuItem className="menu-item" onClick={this.handleClose}>
             <Link to="/" className="menu">
-              Home
+              <span className="arrow">></span> Home
             </Link>
           </MenuItem>
           <MenuItem className="menu-item" onClick={this.handleClose}>
             <Link to="/profile" className="menu">
-              Profile
+              <span className="arrow">></span> Profile
             </Link>
           </MenuItem>
           <MenuItem className="menu-item" onClick={this.handleClose}>
             <Link to="/profile/settings" className="menu">
-              Settings
+              <span className="arrow">></span> Settings
             </Link>
           </MenuItem>
           <MenuItem className="menu-item" onClick={this.logOut}>
             <Link to="/login" className="menu">
-              Logout
+              <span className="arrow">></span> Logout
             </Link>
           </MenuItem>
         </Drawer>
