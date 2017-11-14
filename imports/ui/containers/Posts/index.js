@@ -168,7 +168,6 @@ class PostsContainer extends Component {
     const { shareIsExpanded, toValue, bodyValue, value } = this.state;
 
     if (posts.length > 0 && users.length > 0) {
-      console.log(this.state.value);
       return (
         <div className="post-wrapper">
           <div className="recent-container">
@@ -199,18 +198,13 @@ class PostsContainer extends Component {
               labelStyle={{ color: "white" }}
               selectedMenuItemStyle={{ color: "#ed4242" }}
             >
-              {this.state.filterItems.map(
-                (item, index) => (
-                  console.log(item, index, "index + 1:", index + 1),
-                  (
-                    <MenuItem
-                      key={index + 1}
-                      value={index + 1}
-                      primaryText={item}
-                    />
-                  )
-                )
-              )}
+              {this.state.filterItems.map((item, index) => (
+                <MenuItem
+                  key={index + 1}
+                  value={index + 1}
+                  primaryText={item}
+                />
+              ))}
             </SelectField>
           </div>
           <div className="posts-container">
