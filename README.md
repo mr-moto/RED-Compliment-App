@@ -1,3 +1,5 @@
+# _2017 ARCHIVED_
+
 # Kindred - A Compliment Giving App
 
 Kindred is an Android/iOS App built with Meteor that allows users to send and receive compliments from others! It's designed to be lighthearted and fun, with the goal of brightening up the user's day. The scope of the app currently focuses on serving RED Academy students.
